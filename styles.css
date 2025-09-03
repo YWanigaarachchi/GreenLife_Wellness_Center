@@ -296,6 +296,11 @@ footer {
             text-decoration: none;
         }
 
+        .navbar-brand-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
         .navbar-nav {
             display: flex;
             list-style: none;
@@ -830,3 +835,15 @@ footer {
         .mb-2 { margin-bottom: 2rem; }
         .hidden { display: none; }
         .visible { display: block; }
+
+        .services-description {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .brand-link {
+            text-decoration: none;
+            color: inherit;
+        }
