@@ -1,13 +1,56 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page
+    <title>GreenLife Wellness Center</title>
 </head>
 <body>
-    <h1>Welcome to the Home Page</h1>
-    <p>This is a simple HTML page.</p>
-    
+    <header>
+        <div class="container header-container">
+            <h1>GreenLife Wellness</h1>
+            <nav>
+                
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="About.html">About</a></li>
+                    <li><a href="login.php">Login</a></li>
+                    <li><a href="register.php">Register</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Theraphy Healing Starts Here</h2>
+            <p>Explore our Ayurvedic therapies, yoga classes, and more.</p>
+            <form action="search.php" method="GET" class="search-form">
+                <input type="text" name="query" placeholder="Search for wellness services..." required>
+                <button type="submit">Search</button>
+            </form>
+            <a href="services.html" class="btn">View All Services</a>
+        </div>
+    </section>
+
+    <section class="services-preview">
+        <div class="container">
+            <h3>Popular Services</h3>
+            <ul class="services-list">
+                <li>Ayurvedic Therapy</li>
+                <li>Yoga & Meditation</li>
+                <li>Nutrition Consultation</li>
+                <li>Massage Therapy</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 GreenLife Wellness Center. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
