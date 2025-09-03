@@ -15,20 +15,65 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="About.html">About</a></li>
+                    <li><a href="Watchlist.html">Watchlist</a></li>
                     <li><a href="login.php" class="btn btn-primary disabled" tabindex="-1" role="button" aria-disabled="true">Login</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section class="services-section">
-        <div class="container">
-            <h2>Our Signature Wellness Services</h2>
+        <!-- Categories Page -->
+        <div id="categories" class="page">
+            <h2 class="page-title">Browse by Categories</h2>
+            <div class="categories">
+                <div class="category-card" onclick="filterByCategory('action')">
+                    <div class="category-icon">💥</div>
+                    <h3>Action</h3>
+                    <p>Explosive adventures and intense sequences</p>
+                    <small>24 movies</small>
+                </div>
+                <br>
+                <div class="category-card" onclick="filterByCategory('comedy')">
+                    <div class="category-icon">😂</div>
+                    <h3>Comedy</h3>
+                    <p>Hilarious moments and feel-good stories</p>
+                    <small>18 movies</small>
+                </div>
+                <br>
+                <div class="category-card" onclick="filterByCategory('drama')">
+                    <div class="category-icon">🎭</div>
+                    <h3>Drama</h3>
+                    <p>Deep storytelling and character development</p>
+                    <small>32 movies</small>
+                </div>
+                <br>
+                <div class="category-card" onclick="filterByCategory('horror')">
+                    <div class="category-icon">👻</div>
+                    <h3>Horror</h3>
+                    <p>Terrifying tales and supernatural thrills</p>
+                    <small>15 movies</small>
+                </div>
+                <br>
+                <div class="category-card" onclick="filterByCategory('sci-fi')">
+                    <div class="category-icon">🚀</div>
+                    <h3>Sci-Fi</h3>
+                    <p>Futuristic worlds and advanced technology</p>
+                    <small>21 movies</small>
+                </div>
+                <br>
+                <div class="category-card" onclick="filterByCategory('romance')">
+                    <div class="category-icon">❤️</div>
+                    <h3>Romance</h3>
+                    <p>Love stories and heartwarming moments</p>
+                    <small>19 movies</small>
+                </div>
+            </div>
+        </div>
 
           <div class="service-item">
             <h3>1.Ayurvedic Therapy</h3>
                  <img src="https://plus.unsplash.com/premium_photo-1682098137061-37ad1237ce57?q=80&w=11
-                   70&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ayurvedic Therapy" width="25%">
+                 70&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ayurvedic Therapy" width="25%">
   
 <p>
     Ayurvedic Therapy is a time-honored system of natural healing that originated over 3,000 years ago in 
