@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>About Page</title>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <nav class="navbar container">
+            <div class="navbar-brand">
+                <a href="#" style="text-decoration: none; color: inherit;">🌿 GreenLife Wellness</a>
+            </div>
+            
+            <ul class="navbar-nav" id="navbar-nav">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="About.html" class="nav-link">About</a></li>
+                <li><a href="#therapists" class="nav-link">Therapists</a></li>
+                <li><a href="Contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            
+            <div class="navbar-actions">
+                <a href="login.php" class="btn btn-outline" onclick="showModal('loginModal')">Login</a>
+                <a href="register.php" class="btn btn-primary" onclick="showModal('registerModal')">Register</a>
+            </div>
+
+            <div class="navbar-toggle" id="navbar-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+    
+        <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            
+            <div class="contact-content">
+                <div class="contact-form">
+                    <h3>Send us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name *</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-input">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service" class="form-label">Service Interest</label>
+                            <select id="service" name="service" class="form-select">
+                                <option value="">Select a service</option>
+                                <option value="ayurvedic">Ayurvedic Therapy</option>
+                                <option value="yoga">Yoga & Meditation</option>
+                                <option value="nutrition">Nutrition Consultation</option>
+                                <option value="physiotherapy">Physiotherapy</option>
+                                <option value="massage">Massage Therapy</option>
+                                <option value="package">Wellness Package</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message *</label>
+                            <textarea id="message" name="message" class="form-textarea" required placeholder="Please describe your inquiry or requirements..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <span class="btn-text">Send Message</span>
+                            <span class="loading hidden"></span>
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <strong>Address</strong><br>
+                            123 Galle Road, Colombo 03<br>
+                            Sri Lanka
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <strong>Phone</strong><br>
+                            +94 70 360 8091<br>
+                            +94 76 585 5570
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <strong>Email</strong><br>
+                            info@greenlifewellness.lk<br>
+                            appointments@greenlifewellness.lk
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🕒</div>
+                        <div>
+                            <strong>Working Hours</strong><br>
+                            Mon - Fri: 8:00 AM - 8:00 PM<br>
+                            Sat - Sun: 9:00 AM - 6:00 PM
+                        </div>
+                        <br>
+                    </div>
+                        <div class="contact-icon">🌐</div>
+                        <div>
+                            <strong>Follow Us</strong><br>
+                            <a href="map.php" class="social-link">Facebook</a> | 
+                        </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+</body>
+</html>

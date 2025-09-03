@@ -1,0 +1,94 @@
+<?php
+session_start();
+
+// Redirect if not logged in or not a client
+if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'client') {
+    header("Location: login.php");
+    exit;
+}
+
+// Get client name safely
+$name = isset($_SESSION['user_name']) ? htmlspecialchars($_SESSION['user_name']) : "Client";
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Client Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+            padding: 0;
+        }
+        .dashboard {
+            max-width: 700px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+        }
+        .flag {
+            width: 100px;
+            margin-bottom: 15px;
+        }
+        a {
+            display: block;
+            margin: 12px 0;
+            padding: 12px;
+            background: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+        a:hover {
+            background: #45a049;
+        }
+        .logout {
+            background: #e74c3c;
+        }
+        .logout:hover {
+            background: #c0392b;
+        }
+        .location {
+            margin-top: 25px;
+        }
+        iframe {
+            border: 0;
+            width: 100%;
+            height: 300px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sri Lanka Flag -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Flag_of_Sri_Lanka.svg" 
+             alt="Sri Lanka Flag" class="flag">
+
+        <h2>Welcome, <?php echo $name; ?> (Client)</h2>
+
+        <!-- Dashboard Links -->
+        <a href="appointment.php">📅 Book Appointment</a>
+        <a href="inquiry.php">💬 Submit Inquiry</a>
+        <a href="logout.php" class="logout">🚪 Logout</a>
+
+        <!-- Location Section -->
+        <div class="location">
+            <h3>📍 Our Location - Sri Lanka</h3>
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d251854.51663323137!2d79.7240!3d7.8731!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae17b3c45dcb7a5%3A0x48a9b1c0b8d0cf25!2sSri%20Lanka!5e0!3m2!1sen!2slk!4v1693737600000"
+                allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+    </div>
+</body>
+</html>
