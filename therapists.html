@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>    
+        <!-- Header -->
+    <header class="site-header">
+        <nav class="navbar container">
+            <div class="navbar-brand">
+                <a href="#" class="brand-link">🌿 GreenLife Wellness</a>
+            </div>
+            
+            <ul class="navbar-nav" id="navbar-nav">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="About.html" class="nav-link">About</a></li>
+                <li><a href="therapists.html" class="nav-link">Therapists</a></li>
+                <li><a href="Contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            
+            <div class="navbar-actions">
+                <a href="login.php" class="btn btn-outline" onclick="showModal('loginModal')">Login</a>
+                <a href="register.php" class="btn btn-primary" onclick="showModal('registerModal')">Register</a>
+            </div>
+
+            <div class="navbar-toggle" id="navbar-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+    <br><br><br><br>
+
+        <!-- Therapists Section -->
+    <section class="therapists" id="therapists">
+        <div class="container">
+            <h2 class="section-title">Meet Our Expert Therapists</h2>
+            <p class="text-center" style="max-width: 600px; margin: 0 auto; color: var(--text-secondary); margin-bottom: 2rem;">
+                Our team of qualified and experienced practitioners are dedicated to guiding you on your wellness journey.
+            </p>
+            
+            <div class="therapists-grid">
+                <div class="therapist-card">
+                    <div class="therapist-avatar">👩‍⚕️</div>
+                    <h4>Dr. Priya Sharma</h4>
+                    <div class="therapist-specialty">Ayurvedic Specialist</div>
+                    <div class="therapist-rating">⭐⭐⭐⭐⭐ (4.9/5)</div>
+                    <p>15+ years experience in traditional Ayurvedic medicine and holistic healing practices.</p>
+                    <a href="#" class="btn btn-outline" onclick="viewTherapist('priya')">View Profile</a>
+                </div>
+                
+                <div class="therapist-card">
+                    <div class="therapist-avatar">🧘‍♂️</div>
+                    <h4>Ravi Patel</h4>
+                    <div class="therapist-specialty">Yoga & Meditation Instructor</div>
+                    <div class="therapist-rating">⭐⭐⭐⭐⭐ (4.8/5)</div>
+                    <p>Certified yoga instructor with expertise in Hatha, Vinyasa, and therapeutic yoga practices.</p>
+                    <a href="#" class="btn btn-outline" onclick="viewTherapist('ravi')">View Profile</a>
+                </div>
+                
+                <div class="therapist-card">
+                    <div class="therapist-avatar">👨‍⚕️</div>
+                    <h4>Dr. Michael Fernando</h4>
+                    <div class="therapist-specialty">Physiotherapist</div>
+                    <div class="therapist-rating">⭐⭐⭐⭐⭐ (4.9/5)</div>
+                    <p>Licensed physiotherapist specializing in sports injuries and rehabilitation therapy.</p>
+                    <a href="#" class="btn btn-outline" onclick="viewTherapist('michael')">View Profile</a>
+                </div>
+                
+                <div class="therapist-card">
+                    <div class="therapist-avatar">👩‍🍳</div>
+                    <h4>Sarah Johnson</h4>
+                    <div class="therapist-specialty">Certified Nutritionist</div>
+                    <div class="therapist-rating">⭐⭐⭐⭐⭐ (4.7/5)</div>
+                    <p>Registered dietitian with specialization in holistic nutrition and meal planning.</p>
+                    <a href="#" class="btn btn-outline" onclick="viewTherapist('sarah')">View Profile</a>
+                </div>
+            </div>
+        </div>
+    </section>
+        <footer>
+        <div class="container">
+            <p>&copy; 2025 GreenLife Wellness Center. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
