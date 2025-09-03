@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
     <title>GreenLife Wellness Center</title>
 </head>
 <body>
@@ -19,6 +20,38 @@
                 </ul>
             </nav>
         </div>
+                <style>
+        /* Categories */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .category-card {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(78, 205, 196, 0.1) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 107, 107, 0.5);
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        </style>
     </header>
 
     <section class="hero">
@@ -34,6 +67,24 @@
     </section>
 
     <section class="services-preview">
+         <div class="categories">
+                <div class="category-card" onclick="">
+                    <div class="index img/relax.png"></div>
+                    <h3>Ayurvedic Therapy</h3>
+                </div>
+                <div class="category-card" onclick="">
+                    <div class="category-icon"></div>
+                    <h3>Yoga & Meditation</h3>
+                </div>
+                <div class="category-card" onclick="">
+                    <div class="category-icon"></div>
+                    <h3>Nutrition Consultation</h3>
+                </div>
+                <div class="category-card" onclick="">
+                    <div class="category-icon"></div>
+                    <h3>Massage Therapy</h3>
+                </div>
+            </div>
         <div class="container">
             <h3>Popular Services</h3>
             <ul class="services-list">
