@@ -8,19 +8,32 @@
     <title>GreenLife Wellness Center</title>
 </head>
 <body>
-    <header>
-        <div class="container header-container">
-            <h1>GreenLife Wellness</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="About.html">About</a></li>
-                    <li><a href="Watchlist.html">Watchlist</a></li>
-                    <li><a href="login.php" class="btn btn-primary disabled" tabindex="-1" role="button" aria-disabled="true">Login</a></li>
-                </ul>
-            </nav>
-        </div>
+    <!-- Header -->
+    <header class="site-header">
+        <nav class="navbar container">
+            <div class="navbar-brand">
+                <a href="#" style="text-decoration: none; color: inherit;">🌿 GreenLife Wellness</a>
+            </div>
+            
+            <ul class="navbar-nav" id="navbar-nav">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="About.html" class="nav-link">About</a></li>
+                <li><a href="#therapists" class="nav-link">Therapists</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            
+            <div class="navbar-actions">
+                <a href="login.php" class="btn btn-outline" onclick="showModal('loginModal')">Login</a>
+                <a href="register.php" class="btn btn-primary" onclick="showModal('registerModal')">Register</a>
+            </div>
+
+            <div class="navbar-toggle" id="navbar-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
     </header>
 
     <section class="hero">

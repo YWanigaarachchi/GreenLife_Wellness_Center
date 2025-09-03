@@ -7,20 +7,51 @@
     <title>About Page</title>
 </head>
 <body>
-    <header>
-        <div class="container header-container">
-            <h1>GreenLife Wellness</h1>
+    <!-- Header -->
+    <header class="site-header">
+        <nav class="navbar container">
+            <div class="navbar-brand">
+                <a href="#" style="text-decoration: none; color: inherit;">🌿 GreenLife Wellness</a>
+            </div>
+            
+            <ul class="navbar-nav" id="navbar-nav">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="About.html" class="nav-link">About</a></li>
+                <li><a href="#therapists" class="nav-link">Therapists</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            
+            <div class="navbar-actions">
+                <a href="login.php" class="btn btn-outline" onclick="showModal('loginModal')">Login</a>
+                <a href="register.php" class="btn btn-primary" onclick="showModal('registerModal')">Register</a>
+            </div>
+
+            <div class="navbar-toggle" id="navbar-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+    <h1>About GreenLife Wellness</h1>
+    <p>Welcome to GreenLife Wellness, your sanctuary for holistic health and well-being. Our mission is to provide a comprehensive range of wellness services that nurture the mind, body, and spirit. We believe in the power of natural healing and are dedicated to promoting a balanced lifestyle through our expert therapies and wellness programs.</p>
+    <p>At GreenLife Wellness, we offer a variety of services including Ayurvedic therapies, yoga and meditation classes, nutritional counseling, and stress management workshops. Our team of experienced therapists and wellness professionals are committed to helping you achieve optimal health and vitality.</p>
+    <p>Join us on a journey to better health and discover the transformative power of holistic wellness. Whether you're looking to relax, rejuvenate, or simply maintain a healthy lifestyle, GreenLife Wellness is here to support you every step of the way.</p>
+    <footer>
+        <div class="container footer-container">
+            <p>&copy; 2024 GreenLife Wellness. All rights reserved.</p>
             <nav>
-               <ul>
+                <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="About.html">About</a></li>
                     <li><a href="Watchlist.html">Watchlist</a></li>
-                    <li><a href="login.php" class="btn btn-primary disabled" tabindex="-1" role="button" aria-disabled="true">Login</a></li>
                 </ul>
             </nav>
-        </div>
-    </header>
-    
+        </div>  
+    </footer>
+    <script src="script.js"></script>
+
 </body>
 </html>
