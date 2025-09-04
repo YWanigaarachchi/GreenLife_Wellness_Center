@@ -65,5 +65,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <a href="index.html" class="btn">Back to Home</a>
 </p>
 </div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <footer>
+        <div class="container footer-container">
+            <p>&copy; 2025 GreenLife Wellness. All rights reserved.</p>
+        </div>  
+    </footer>
 </body>
 </html>
