@@ -59,81 +59,154 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .login-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .login-container h2 {
-            margin-bottom: 20px;
-        }
-        .login-container input[type="email"],
-        .login-container input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
-        .login-container input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            background-color: #28a745;
-            border: none;
-            color: white;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-        .login-container input[type="submit"]:hover {
-            background-color: #218838;
-        }
-        .message {
-            color: red;
-            margin-bottom: 15px;
-        }
-        .register-link {
-            margin-top: 15px;
-            display: block;
-            text-align: center;
-        }
-        .register-link a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        .register-link a:hover {
-            text-decoration: underline;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GreenLife Wellness Center - Login</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    </style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      height: 100vh;
+      display: flex;
+    }
+
+    .login-wrapper {
+      display: flex;
+      width: 100%;
+      height: 100vh;
+    }
+
+    /* Left side image */
+    .login-left {
+      flex: 1;
+      background: url('wellness.jpg') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+    }
+    .login-left h1 {
+      font-size: 2.5rem;
+      background: rgba(0,0,0,0.5);
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    /* Right side big login */
+    .login-right {
+      flex: 1.5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f4f8f6;
+      padding: 40px;
+    }
+
+    .login-container {
+      background: #fff;
+      padding: 60px 50px;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 600px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    .login-container h2 {
+      margin-bottom: 25px;
+      text-align: center;
+      color: #2c3e50;
+      font-size: 2rem;
+    }
+
+    .login-container input[type="email"],
+    .login-container input[type="password"] {
+      width: 100%;
+      padding: 14px;
+      margin: 12px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .login-container input[type="submit"] {
+      width: 100%;
+      padding: 14px;
+      background: #28a745;
+      border: none;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .login-container input[type="submit"]:hover {
+      background: #218838;
+    }
+
+    .message {
+      color: red;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .register-link {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .register-link a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .register-link a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .login-wrapper {
+        flex-direction: column;
+      }
+      .login-left {
+        height: 35vh;
+      }
+      .login-right {
+        height: 65vh;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="login-container">
+  <div class="login-wrapper">
+    
+    <!-- Left branding -->
+    <div class="login-left">
+      <h1>🌿 GreenLife Wellness Center</h1>
+    </div>
+
+    <!-- Right login form -->
+    <div class="login-right">
+      <div class="login-container">
         <h2>Login</h2>
         <?php if ($message): ?>
-            <div class="message"><?php echo htmlspecialchars($message); ?></div>
+          <div class="message"><?php echo htmlspecialchars($message); ?></div>
         <?php endif; ?>
         <form method="POST" action="login.php">
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <input type="submit" value="Login">
+          <input type="email" name="email" placeholder="Enter your email" required>
+          <input type="password" name="password" placeholder="Enter your password" required>
+          <input type="submit" value="Login">
         </form>
         <div class="register-link">
-            <p>Don't have an account? <a href="register.php">Register here</a></p>
+          <p>Don't have an account? <a href="register.php">Register here</a></p>
         </div>
+      </div>
     </div>
+  </div>
 </body>
 </html>
