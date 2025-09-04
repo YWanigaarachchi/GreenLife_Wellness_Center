@@ -37,52 +37,86 @@
     <br><br><br><br>
 
         <!-- Therapists Section -->
-    <section class="therapists" id="therapists">
-        <div class="container">
-            <h2 class="section-title">Meet Our Expert Therapists</h2>
-            <p class="text-center" style="max-width: 600px; margin: 0 auto; color: var(--text-secondary); margin-bottom: 2rem;">
-                Our team of qualified and experienced practitioners are dedicated to guiding you on your wellness journey.
-            </p>
-            
-            <div class="therapists-grid">
-                <div class="therapist-card">
-                    <div class="therapist-avatar">👩‍⚕️</div>
-                    <h4>Dr. Priya Sharma</h4>
-                    <div class="therapist-specialty">Ayurvedic Specialist</div>
-                    <div class="therapist-rating">⭐⭐⭐⭐⭐ (4.9/5)</div>
-                    <p>15+ years experience in traditional Ayurvedic medicine and holistic healing practices.</p>
-                    <a href="#" class="btn btn-outline" onclick="viewTherapist('priya')">View Profile</a>
-                </div>
-                
-                <div class="therapist-card">
-                    <div class="therapist-avatar">🧘‍♂️</div>
-                    <h4>Ravi Patel</h4>
-                    <div class="therapist-specialty">Yoga & Meditation Instructor</div>
-                    <div class="therapist-rating">⭐⭐⭐⭐⭐ (4.8/5)</div>
-                    <p>Certified yoga instructor with expertise in Hatha, Vinyasa, and therapeutic yoga practices.</p>
-                    <a href="#" class="btn btn-outline" onclick="viewTherapist('ravi')">View Profile</a>
-                </div>
-                
-                <div class="therapist-card">
-                    <div class="therapist-avatar">👨‍⚕️</div>
-                    <h4>Dr. Michael Fernando</h4>
-                    <div class="therapist-specialty">Physiotherapist</div>
-                    <div class="therapist-rating">⭐⭐⭐⭐⭐ (4.9/5)</div>
-                    <p>Licensed physiotherapist specializing in sports injuries and rehabilitation therapy.</p>
-                    <a href="#" class="btn btn-outline" onclick="viewTherapist('michael')">View Profile</a>
-                </div>
-                
-                <div class="therapist-card">
-                    <div class="therapist-avatar">👩‍🍳</div>
-                    <h4>Sarah Johnson</h4>
-                    <div class="therapist-specialty">Certified Nutritionist</div>
-                    <div class="therapist-rating">⭐⭐⭐⭐⭐ (4.7/5)</div>
-                    <p>Registered dietitian with specialization in holistic nutrition and meal planning.</p>
-                    <a href="#" class="btn btn-outline" onclick="viewTherapist('sarah')">View Profile</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="therapists" id="therapists">
+  <div class="container">
+    <h2 class="section-title">Meet Our Expert Therapists</h2>
+    <p class="text-center" style="max-width: 600px; margin: 0 auto; color: var(--text-secondary); margin-bottom: 2rem;">
+      Our team of qualified and experienced practitioners are dedicated to guiding you on your wellness journey.
+    </p>
+
+    <div class="therapists-grid">
+      
+      <!-- Therapist 1 -->
+      <div class="therapist-card" onclick="openForm('form1')">
+        <div class="therapist-avatar">👩‍⚕️</div>
+        <div class="therapist-specialty">Ayurvedic Specialist</div>
+      </div>
+
+      <!-- Therapist 2 -->
+      <div class="therapist-card" onclick="openForm('form2')">
+        <div class="therapist-avatar">🧘‍♂️</div>
+        <div class="therapist-specialty">Yoga & Meditation Instructor</div>
+
+      </div>
+
+      <!-- Therapist 3 -->
+      <div class="therapist-card" onclick="openForm('form3')">
+        <div class="therapist-avatar">👨‍⚕️</div>
+        <div class="therapist-specialty">Physiotherapist</div>
+
+      </div>
+
+      <!-- Therapist 4 -->
+      <div class="therapist-card" onclick="openForm('form4')">
+        <div class="therapist-avatar">👩‍🍳</div>
+        <div class="therapist-specialty">Certified Nutritionist</div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Popup Forms -->
+<div class="form-popup" id="form1">
+  <div class="form-content">
+    <h3>Dr. Priya Sharma</h3>
+    <p>15+ years experience in traditional Ayurvedic medicine and holistic healing practices.</p>
+            <div class="therapist-rating">⭐⭐⭐⭐⭐ (4.9/5)</div>
+    <button type="button" class="btn cancel" onclick="closeForm('form1')">Close</button>
+  </div>
+</div>
+
+<div class="form-popup" id="form2">
+  <div class="form-content">
+    <h3>Ravi Patel</h3>
+    <p>Certified yoga instructor with expertise in Hatha, Vinyasa, and therapeutic yoga practices.</p>
+            <div class="therapist-rating">⭐⭐⭐⭐⭐ (4.8/5)</div>
+    <button type="button" class="btn cancel" onclick="closeForm('form2')">Close</button>
+  </div>
+</div>
+
+<div class="form-popup" id="form3">
+  <div class="form-content">
+    <h3>Dr. Michael Fernando</h3>
+    <p>Licensed physiotherapist specializing in sports injuries and rehabilitation therapy.</p>
+            <div class="therapist-rating">⭐⭐⭐⭐⭐ (4.9/5)</div>
+    <button type="button" class="btn cancel" onclick="closeForm('form3')">Close</button>
+  </div>
+</div>
+
+<div class="form-popup" id="form4">
+  <div class="form-content">
+    <h3>Sarah Johnson</h3>
+    <p>Registered dietitian with specialization in holistic nutrition and meal planning.</p>
+            <div class="therapist-rating">⭐⭐⭐⭐⭐ (4.7/5)</div>
+    <button type="button" class="btn cancel" onclick="closeForm('form4')">Close</button>
+  </div>
+</div>
+
+
+<br><br><br><br>   
+ <!-- Footer -->
     <footer>
         <div class="container footer-container">
             <p>&copy; 2025 GreenLife Wellness. All rights reserved.</p>
@@ -97,6 +131,24 @@
             </nav>
         </div>  
     </footer>
+
+<!-- JS -->
+<script>
+function openForm(id) {
+  document.getElementById(id).style.display = "flex";
+}
+function closeForm(id) {
+  document.getElementById(id).style.display = "none";
+}
+// Close popup if clicking outside content
+window.onclick = function(event) {
+  document.querySelectorAll('.form-popup').forEach(popup => {
+    if (event.target === popup) {
+      popup.style.display = "none";
+    }
+  });
+}
+</script>
 
 </body>
 </html>

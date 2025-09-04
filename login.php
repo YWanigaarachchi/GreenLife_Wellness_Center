@@ -117,6 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         .register-link a:hover {
             text-decoration: underline;
         }
+
     </style>
 </head>
 <body>

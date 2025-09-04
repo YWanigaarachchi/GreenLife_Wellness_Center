@@ -2,86 +2,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles.css">
-    <title>GreenLife Wellness Center</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>GreenLife Wellness Center</title>
 </head>
 <body>
-    <!-- Header -->
-    <header class="site-header">
-        <nav class="navbar container">
-            <div class="navbar-brand">
-                <a href="index.html" class="nav-link">🌿 GreenLife Wellness</a>
-            </div>
-            
-            <ul class="navbar-nav" id="navbar-nav">
-                <li><a href="index.html" class="nav-link active">Home</a></li>
-                <li><a href="services.html" class="nav-link">Services</a></li>
-                <li><a href="About.html" class="nav-link">About</a></li>
-                <li><a href="therapists.html" class="nav-link">Therapists</a></li>
-                <li><a href="Contact.html" class="nav-link">Contact</a></li>
-            </ul>
-            
-            <div class="navbar-actions">
-                <a href="login.php" class="btn btn-outline" onclick="showModal('loginModal')">Login</a>
-                <a href="register.php" class="btn btn-primary" onclick="showModal('registerModal')">Register</a>
-            </div>
+  <!-- Header -->
+  <header class="site-header">
+    <nav class="navbar container">
+      <div class="navbar-brand">
+        <a href="index.html" class="nav-link">🌿 GreenLife Wellness</a>
+      </div>
+      
+      <ul class="navbar-nav" id="navbar-nav">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="About.html" class="nav-link">About</a></li>
+        <li><a href="therapists.html" class="nav-link">Therapists</a></li>
+        <li><a href="Contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      
+      <div class="navbar-actions">
+        <a href="login.php" class="btn btn-outline">Login</a>
+        <a href="register.php" class="btn btn-primary">Register</a>
+      </div>
 
-            <div class="navbar-toggle" id="navbar-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
+      <!-- Toggle Button for Mobile -->
+      <div class="navbar-toggle" id="navbar-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
 
-    <section class="hero">
-        <div class="container">
-            <h2>Theraphy Healing Starts Here</h2>
-            <p>Explore our Ayurvedic therapies, yoga classes, and more.</p>
-            <form action="search.php" method="GET" class="search-form">
-                <input type="text" name="query" placeholder="Search for wellness services..." required>
-                <button type="submit">Search</button>
-            </form>
-            <a href="services.html" class="btn">View All Services</a>
-        </div>
-    </section>
+  <section class="hero">
+    <div class="container">
+      <h2>Therapy Healing Starts Here</h2>
+      <p>Explore our Ayurvedic therapies, yoga classes, and more.</p>
+      <form action="search.php" method="GET" class="search-form">
+        <input type="text" name="query" placeholder="Search for wellness services..." required>
+        <button type="submit">Search</button>
+      </form>
+      <a href="services.html" class="btn">View All Services</a>
+    </div>
+  </section>
 
-    <section class="services-preview">
-         <div class="categories">
-                <div class="category-card" onclick="">
-                    <div class="index img/relax.png"></div>
-                    <h3>Ayurvedic Therapy</h3>
-                </div>
-                <div class="category-card" onclick="">
-                    <div class="category-icon"></div>
-                    <h3>Yoga & Meditation</h3>
-                </div>
-                <div class="category-card" onclick="">
-                    <div class="category-icon"></div>
-                    <h3>Nutrition Consultation</h3>
-                </div>
-                <div class="category-card" onclick="">
-                    <div class="category-icon"></div>
-                    <h3>Massage Therapy</h3>
-                </div>
-            </div>
-    </section>
+  <section class="services-preview container">
+    <div class="categories">
+      <div class="category-card">
+        <img src="img/relax.png" alt="Ayurvedic Therapy">
+        <h3>Ayurvedic Therapy</h3>
+      </div>
+      <div class="category-card">
+        <img src="img/yoga.png" alt="Yoga & Meditation">
+        
+        <h3>Yoga & Meditation</h3>
+      </div>
+      <div class="category-card">
+        <img src="img/nutrition.png" alt="Nutrition Consultation">
+        <h3>Nutrition Consultation</h3>
+      </div>
+      <div class="category-card">
+        <img src="img/massage.png" alt="Massage Therapy">
+        <h3>Massage Therapy</h3>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <div class="container footer-container">
-            <p>&copy; 2025 GreenLife Wellness. All rights reserved.</p>
-            <nav>
-                <ul>
-                <li><a href="index.html" class="nav-link active">Home</a></li>
-                <li><a href="services.html" class="nav-link">Services</a></li>
-                <li><a href="About.html" class="nav-link ">About</a></li>
-                <li><a href="therapists.html" class="nav-link">Therapists</a></li>
-                <li><a href="Contact.html" class="nav-link">Contact</a></li>
-                </ul>
-            </nav>
-        </div>  
-    </footer>
+  <footer>
+    <div class="container footer-container">
+      <p>&copy; 2025 GreenLife Wellness. All rights reserved.</p>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="About.html" class="nav-link">About</a></li>
+          <li><a href="therapists.html" class="nav-link">Therapists</a></li>
+          <li><a href="Contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>  
+  </footer>
+
+  <script>
+    // Toggle menu
+    const toggle = document.getElementById("navbar-toggle");
+    const nav = document.getElementById("navbar-nav");
+
+    toggle.addEventListener("click", () => {
+      nav.classList.toggle("active");
+    });
+  </script>
 </body>
 </html>
