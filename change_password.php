@@ -144,23 +144,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['change_password'])) {
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="site-header">
-    <nav class="navbar container">
-      <div class="navbar-brand">
-        <a href="index.html">🌿 GreenLife Wellness</a>
-      </div>
-      <ul class="navbar-nav">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="services.html" class="nav-link">Services</a></li>
-        <li><a href="about.html" class="nav-link">About</a></li>
-        <li><a href="therapists.html" class="nav-link">Therapists</a></li>
-        <li><a href="contact.html" class="nav-link">Contact</a></li>
-        <li><a href="profile.php" class="nav-link active">Profile</a></li>
-      </ul>
-    </nav>
-    <h1>Welcome, <?php echo $_SESSION['user_name']; ?>!</h1>
-  </header>
 
   <div class="container">
     <!-- Personal Information Card -->
@@ -169,34 +152,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['change_password'])) {
       <p><strong>Name:</strong> <?php echo $_SESSION['user_name']; ?></p>
       <p><strong>Email:</strong> <?php echo $_SESSION['user_email']; ?></p>
       <p><strong>Phone:</strong> <?php echo $_SESSION['user_phone']; ?></p>
-      <a href="update_profile.php" class="btn">Update Profile</a>
       <button class="btn" onclick="openModal()">Change Password</button>
     </div>
-
-    <!-- Recent Appointment Card -->
-    <div class="card">
-      <h2>Recent Appointment</h2>
-      <?php if ($recent_appointment): ?>
-        <p><strong>Date:</strong> <?php echo $recent_appointment['date']; ?></p>
-        <p><strong>Time:</strong> <?php echo $recent_appointment['time']; ?></p>
-        <p><strong>Service:</strong> <?php echo $recent_appointment['service']; ?></p>
-      <?php else: ?>
-        <p>No appointments yet.</p>
-      <?php endif; ?>
-      <a href="book_appointment.php" class="btn">Book Your First Appointment</a>
-    </div>
-
-    <!-- Quick Actions Card -->
-    <div class="card quick-actions">
-      <h2>Quick Actions</h2>
-      <ul>
-        <li><a href="book_appointment.php">📅 Book Appointment</a></li>
-        <li><a href="services.php">💆 Browse Services</a></li>
-        <li><a href="contact.php">📞 Contact Us</a></li>
-      </ul>
-    </div>
-  </div>
-
+    
   <!-- Password Change Modal -->
   <div id="passwordModal" class="modal">
     <div class="modal-content">

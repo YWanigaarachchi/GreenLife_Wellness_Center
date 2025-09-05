@@ -30,7 +30,7 @@ $recent_appointment = [
   <header class="site-header">
     <nav class="navbar container">
       <div class="navbar-brand">
-        <a href="index.html">🌿 GreenLife Wellness</a>
+        <a href="index.html" style="text-decoration: none; color: inherit;">🌿 GreenLife Wellness</a>
       </div>
       
       <ul class="navbar-nav" id="navbar-nav">
