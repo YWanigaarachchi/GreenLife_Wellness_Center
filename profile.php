@@ -46,10 +46,13 @@ $recent_appointment = [
         <a href="logout.php" class="btn btn-primary">Log Out</a>
       </div>
     </nav>
-    <h1>Welcome, <?php echo $_SESSION['user_name']; ?>!</h1>
   </header>
+  
       <br><br><br><br><br><br><br>    <br><br><br>
   <div class="container">
+        <!-- Client Information tag -->
+        <h1>Welcome, <?php echo $_SESSION['user_name']; ?>!</h1>
+        <br><br><br>
 
     <!-- Personal Information Card -->
     <div class="category-card">
