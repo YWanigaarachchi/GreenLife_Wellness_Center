@@ -146,7 +146,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['change_password'])) {
 <body>
 
   <div class="container">
-    <!-- Personal Information Card -->
+    <!-- Personal Information Card 
+     -->
     <div class="card">
       <h2>Personal Information</h2>
       <p><strong>Name:</strong> <?php echo $_SESSION['user_name']; ?></p>
