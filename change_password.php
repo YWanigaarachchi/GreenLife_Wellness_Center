@@ -153,6 +153,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['change_password'])) {
       <p><strong>Email:</strong> <?php echo $_SESSION['user_email']; ?></p>
       <p><strong>Phone:</strong> <?php echo $_SESSION['user_phone']; ?></p>
       <button class="btn" onclick="openModal()">Change Password</button>
+      <a href="profile.php" class="btn">Go back</a>
     </div>
     
   <!-- Password Change Modal -->
