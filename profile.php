@@ -1,19 +1,12 @@
 <?php
 session_start();
 
-// Example: Dummy session values (replace with database session data after login)
+// Example: Dummy session values (replace with real database session data after login)
 if (!isset($_SESSION['user_name'])) {
-    $_SESSION['user_name']  = "John Doe";
-    $_SESSION['user_email'] = "john@example.com";
-    $_SESSION['user_phone'] = "+94 77 123 4567";
+    $_SESSION['user_name'];
+    $_SESSION['user_email'];
+    $_SESSION['user_phone'];
 }
-
-// Example appointment data (replace with SQL query later)
-$recent_appointment = [
-    "date" => "2025-09-10",
-    "time" => "10:00 AM",
-    "service" => "Massage Therapy"
-];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,6 +30,7 @@ $recent_appointment = [
         display: flex;
         justify-content: space-between;
         align-items: center;
+        flex-wrap: wrap;
     }
 
     header h1 { font-size: 1.5rem; }
@@ -62,7 +56,7 @@ $recent_appointment = [
         color: #28a745;
     }
 
-    .category-card {
+    .card {
         background: #f8f9fa;
         padding: 20px;
         border-radius: 10px;
@@ -70,8 +64,8 @@ $recent_appointment = [
         box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
 
-    .category-card h2, .category-card h3 {
-        margin-bottom: 10px;
+    .card h2 {
+        margin-bottom: 15px;
         color: #28a745;
     }
 
@@ -104,6 +98,13 @@ $recent_appointment = [
             margin: 15px;
             padding: 15px;
         }
+        header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        header nav {
+            margin-top: 10px;
+        }
     }
   </style>
 </head>
@@ -115,51 +116,41 @@ $recent_appointment = [
         <a href="client_dashboard.php">Home</a>
         <a href="profile.php">Profile</a>
         <a href="appointment.php">Appointments</a>
+        <a href="messages.php">Messages</a> <!-- Added Messages -->
         <a href="logout.php">Logout</a>
     </nav>
 </header>
   
 <div class="container">
-    <!-- Client Welcome -->
     <h1>Welcome, <?php echo htmlspecialchars($_SESSION['user_name']); ?>!</h1>
 
-    <!-- Personal Information Card -->
-    <div class="category-card">
-      <h2>Personal Information</h2>
+    <!-- Card 1: Login Details -->
+    <div class="card">
+      <h2>👤 Client Details</h2>
       <p><strong>Name:</strong> <?php echo htmlspecialchars($_SESSION['user_name']); ?></p>
       <p><strong>Email:</strong> <?php echo htmlspecialchars($_SESSION['user_email']); ?></p>
       <p><strong>Phone:</strong> <?php echo htmlspecialchars($_SESSION['user_phone']); ?></p>
+    </div>
+
+    <!-- Card 2: Update Profile & Change Password -->
+    <div class="card">
+      <h2>⚙️ Account Settings</h2>
       <a href="update_profile.php" class="btn">Update Profile</a>
       <a href="change_password.php" class="btn">Change Password</a>
     </div>
 
-    <!-- Recent Appointment Card -->
-    <div class="category-card">
-      <h2>Recent Appointment</h2>
-      <?php if ($recent_appointment): ?>
-        <p><strong>Date:</strong> <?php echo $recent_appointment['date']; ?></p>
-        <p><strong>Time:</strong> <?php echo $recent_appointment['time']; ?></p>
-        <p><strong>Service:</strong> <?php echo $recent_appointment['service']; ?></p>
-      <?php else: ?>
-        <p>No appointments yet.</p>
-      <?php endif; ?>
-      <a href="book_appointment.php" class="btn">Book Appointment</a>
+    <!-- Card 3: Book Appointment -->
+    <div class="card">
+      <h2>📅 Book Appointment</h2>
+      <p>Schedule your next wellness session with ease.</p>
+      <a href="book_appointment.php" class="btn">Book Now</a>
     </div>
 
-    <!-- Quick Actions -->
-    <div class="category-card">
-      <h2>Quick Actions</h2>
-      <div class="categories">
-        <div class="category-card">
-          <h3>📅 Book Appointment</h3>
-        </div>
-        <div class="category-card">
-          <h3>💆 Browse Services</h3>
-        </div>
-        <div class="category-card">
-          <h3>📞 Contact Us</h3>
-        </div>
-      </div>
+    <!-- Card 4: Contact Us -->
+    <div class="card">
+      <h2>📞 Contact Us</h2>
+      <p>If you have any questions, reach out to our support team.</p>
+      <a href="contact.php" class="btn">Get in Touch</a>
     </div>
 </div>
 
