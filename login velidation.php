@@ -4,8 +4,8 @@ session_start();
 // Database connection
 $servername = "localhost";   // change if needed
 $username   = "root";        // your DB username
-$password   = "";            // your DB password
-$dbname     = "greenlife";   // your DB name
+$password   = "#Dell123";            // your DB password
+$dbname     = "life1";   // your DB name
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

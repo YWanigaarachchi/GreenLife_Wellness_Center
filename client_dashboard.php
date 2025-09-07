@@ -1,15 +1,14 @@
 <?php
 session_start();
 
-// Check if user is logged in and role is client
-if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] !== 'client') {
+// Redirect if not logged in or not a client
+if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'client') {
     header("Location: login.php");
     exit;
 }
 
-$name = $_SESSION['user_name']; // stored during login
-$email = $_SESSION['user_email']; 
-$phone = $_SESSION['user_phone']; 
+// Get client name safely
+$name = isset($_SESSION['user_name']) ? htmlspecialchars($_SESSION['user_name']) : "Client";
 ?>
 
 <!DOCTYPE html>
@@ -104,7 +103,6 @@ $phone = $_SESSION['user_phone'];
 </style>
 </head>
 <body>
-
 <header>
     <h1>🌿 GreenLife Client Dashboard</h1>
     <nav>
