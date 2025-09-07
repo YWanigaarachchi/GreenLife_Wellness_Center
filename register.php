@@ -5,7 +5,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // CONNECT TO DATABASE
-include("db.php");
+include("db.php"); // Make sure this sets $conn = new mysqli(...);
 
 $message = "";
 
@@ -21,33 +21,55 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password   = $_POST['password'];
     $confirm    = $_POST['confirm_password'];
 
-    if($password !== $confirm) {
+    if ($password !== $confirm) {
         $message = "Passwords do not match!";
     } else {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-        // Check if email or username already exists
-        $check_sql = "SELECT * FROM users WHERE email = ? OR username = ?";
-        $stmt = $conn->prepare($check_sql);
-        $stmt->bind_param("ss", $email, $username);
-        $stmt->execute();
-        $check_result = $stmt->get_result();
+        // ✅ Check if email or username already exists
+        $check_sql = "SELECT user_id FROM users WHERE email = ? OR username = ?";
+        if ($stmt = $conn->prepare($check_sql)) {
+            $stmt->bind_param("ss", $email, $username);
+            $stmt->execute();
+            $check_result = $stmt->get_result();
 
-        if ($check_result->num_rows > 0) {
-            $message = "Email or username already exists!";
-        } else {
-            $insert_sql = "INSERT INTO users (first_name, last_name, username, email, phone, password, role) VALUES (?, ?, ?, ?, ?, ?, ?)";
-            $stmt = $conn->prepare($insert_sql);
-            $stmt->bind_param("sssssss", $first_name, $last_name, $username, $email, $phone, $hashed_password, $default_role);
-            if ($stmt->execute()) {
-                $message = "✅ Registration successful!";
+            if ($check_result && $check_result->num_rows > 0) {
+                $message = "Email or username already exists!";
             } else {
-                $message = "❌ Something went wrong: " . $stmt->error;
+                // ✅ Insert new user
+                $insert_sql = "INSERT INTO users 
+                    (first_name, last_name, username, email, phone, password, role) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+                if ($stmt = $conn->prepare($insert_sql)) {
+                    $stmt->bind_param(
+                        "sssssss", 
+                        $first_name, 
+                        $last_name, 
+                        $username, 
+                        $email, 
+                        $phone, 
+                        $hashed_password, 
+                        $default_role
+                    );
+
+                    if ($stmt->execute()) {
+                        $message = "✅ Registration successful!";
+                    } else {
+                        $message = "❌ Something went wrong: " . $stmt->error;
+                    }
+                } else {
+                    $message = "❌ Prepare failed: " . $conn->error;
+                }
             }
+            $stmt->close();
+        } else {
+            $message = "❌ Database error: " . $conn->error;
         }
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
