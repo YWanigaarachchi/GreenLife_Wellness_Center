@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Appointments - GreenLife Wellness</title>
+  <title>Contact - GreenLife Wellness</title>
   <style>
     /* Reset */
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -43,47 +43,57 @@
     /* Main */
     .main {
       flex: 1;
-      padding: 20px;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
     }
 
-    /* Card */
+    /* Contact Card */
     .card {
       background: #fff;
-      padding: 20px;
+      padding: 30px;
       border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      width: 100%;
+      max-width: 600px;
     }
     .card h3 {
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       color: #2c3e50;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
-
-    /* Table */
-    table {
+    label {
+      display: block;
+      margin: 10px 0 6px;
+      font-weight: bold;
+      color: #333;
+    }
+    input, textarea {
       width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-    th, td {
       padding: 10px;
+      margin-bottom: 15px;
       border: 1px solid #ccc;
-      text-align: center;
+      border-radius: 6px;
+      font-size: 14px;
     }
-    th {
-      background: #27ae60;
-      color: #fff;
-    }
+    textarea { resize: vertical; }
+
     button {
-      padding: 6px 10px;
+      padding: 12px 20px;
+      background: #2980b9;
       border: none;
-      background: #e74c3c;
+      border-radius: 6px;
       color: #fff;
-      border-radius: 5px;
+      font-size: 15px;
       cursor: pointer;
       transition: background 0.3s;
     }
     button:hover {
-      background: #c0392b;
+      background: #21618c;
     }
 
     /* Mobile */
@@ -91,7 +101,7 @@
       body { flex-direction: column; }
       .sidebar { width: 100%; display: flex; overflow-x: auto; }
       .sidebar a { flex: 1; text-align: center; }
-      table { font-size: 14px; }
+      .main { padding: 20px; }
     }
   </style>
 </head>
@@ -111,30 +121,19 @@
   <!-- Main -->
   <div class="main">
     <div class="card">
-      <h3>📅 My Appointments</h3>
-      <table>
-        <tr>
-          <th>Date</th>
-          <th>Time</th>
-          <th>Doctor</th>
-          <th>Status</th>
-          <th>Action</th>
-        </tr>
-        <tr>
-          <td>12th Sept</td>
-          <td>10:00 AM</td>
-          <td>Dr. Smith</td>
-          <td>Confirmed</td>
-          <td><button>Cancel</button></td>
-        </tr>
-        <tr>
-          <td>20th Sept</td>
-          <td>02:00 PM</td>
-          <td>Dr. Lee</td>
-          <td>Pending</td>
-          <td><button>Cancel</button></td>
-        </tr>
-      </table>
+      <h3>📞 Contact Us</h3>
+      <form method="post" action="send_message.php">
+        <label>Your Name</label>
+        <input type="text" name="name" required>
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Message</label>
+        <textarea name="message" rows="6" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
     </div>
   </div>
 

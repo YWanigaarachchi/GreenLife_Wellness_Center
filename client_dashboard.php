@@ -1,149 +1,123 @@
 <?php
 session_start();
 
-// Redirect if not logged in or not a client
-if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'client') {
-    header("Location: login.php");
-    exit;
-}
+// Example session data (remove after connecting with login)
+$_SESSION['user_name'] = "John Doe";
+$_SESSION['user_email'] = "johndoe@email.com";
+$_SESSION['user_phone'] = "0712345678";
 
-// Get client name safely
-$name = isset($_SESSION['user_name']) ? htmlspecialchars($_SESSION['user_name']) : "Client";
+$name  = $_SESSION['user_name'];
+$email = $_SESSION['user_email'];
+$phone = $_SESSION['user_phone'];
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Client Dashboard - GreenLife Wellness Center</title>
-<style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Dashboard - GreenLife Wellness</title>
+  <style>
+    /* Basic Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; display: flex; min-height: 100vh; }
 
-    body {
-        background: #f5f7fa;
-        color: #2c3e50;
-    }
-
-    header {
-        background: #28a745;
-        color: white;
-        padding: 15px 25px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    header h1 { font-size: 1.5rem; }
-    header nav a {
-        color: white;
-        text-decoration: none;
-        margin-left: 15px;
-        font-weight: bold;
-    }
-    header nav a:hover { text-decoration: underline; }
-
-    .dashboard {
-        max-width: 1100px;
-        margin: 30px auto;
-        display: grid;
-        grid-template-columns: 1fr 3fr;
-        gap: 25px;
-    }
-
+    /* Sidebar */
     .sidebar {
-        background: white;
-        padding: 20px;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 220px;
+      background: #2c3e50;
+      color: #fff;
+      padding: 20px 0;
+      flex-shrink: 0;
     }
-
     .sidebar h2 {
-        margin-bottom: 15px;
-        font-size: 1.3rem;
-        color: #28a745;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+    .sidebar a {
+      display: block;
+      color: #fff;
+      padding: 12px 20px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .sidebar a:hover {
+      background: #34495e;
     }
 
-    .sidebar p { margin: 8px 0; }
-
-    .content {
-        background: white;
-        padding: 25px;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    /* Main Content */
+    .main {
+      flex: 1;
+      padding: 20px;
+      background: #ecf0f1;
+    }
+    .welcome {
+      margin-bottom: 20px;
+      font-size: 20px;
+      font-weight: bold;
     }
 
-    .content h2 {
-        margin-bottom: 20px;
-        color: #28a745;
+    /* Cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
     }
-
     .card {
-        background: #f8f9fa;
-        padding: 20px;
-        border-radius: 10px;
-        margin-bottom: 15px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: #2c3e50;
     }
 
-    footer {
-        text-align: center;
-        margin-top: 40px;
-        padding: 15px;
-        background: #2c3e50;
-        color: white;
+    /* Mobile */
+    @media(max-width: 768px) {
+      body { flex-direction: column; }
+      .sidebar { width: 100%; display: flex; overflow-x: auto; }
+      .sidebar a { flex: 1; text-align: center; }
     }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-        .dashboard {
-            grid-template-columns: 1fr;
-        }
-    }
-</style>
+  </style>
 </head>
 <body>
-<header>
-    <h1>🌿 GreenLife Client Dashboard</h1>
-    <nav>
-        <a href="client_dashboard.php">Home</a>
-        <a href="profile.php">Profile</a>
-        <a href="appointment.php">Appointments</a>
-        <a href="logout.php">Logout</a>
-    </nav>
-</header>
 
-<div class="dashboard">
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <h2>Welcome, <?php echo htmlspecialchars($name); ?> 👋</h2>
-        <p><strong>Email:</strong> <?php echo htmlspecialchars($email); ?></p>
-        <p><strong>Phone:</strong> <?php echo htmlspecialchars($phone); ?></p>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>GreenLife</h2>
+    <a href="client_dashboard.php">Home</a>
+    <a href="profile.php">Profile</a>
+    <a href="appointment.php">Appointments</a>
+    <a href="clent_contact.php">Contact</a>
+    <a href="inquiry.php">Inquiries</a>
+    <a href="logout.php">Log Out</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+    <div class="welcome">Welcome, <?php echo htmlspecialchars($name); ?>!</div>
+
+    <div class="cards">
+      <div class="card">
+        <h3>🔔 Notifications</h3>
+        <p>You have 2 new messages.</p>
+      </div>
+
+      <div class="card">
+        <h3>📅 Upcoming Appointments</h3>
+        <p>Next appointment: 12th Sept, 10:00 AM</p>
+      </div>
+
+      <div class="card">
+        <h3>💡 Wellness Tips</h3>
+        <p>Drink at least 8 glasses of water daily.</p>
+      </div>
     </div>
-
-    <!-- Main content -->
-    <div class="content">
-        <h2>Your Dashboard</h2>
-
-        <div class="card">
-            <h3>Upcoming Appointment</h3>
-            <p>No upcoming appointments. <a href="#">Book Now</a></p>
-        </div>
-
-        <div class="card">
-            <h3>Wellness Tips</h3>
-            <ul>
-                <li>Stay hydrated 💧</li>
-                <li>Take regular breaks 🧘</li>
-                <li>Eat balanced meals 🥗</li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-<footer>
-    &copy; 2025 GreenLife Wellness Center. All Rights Reserved.
-</footer>
+  </div>
 
 </body>
 </html>

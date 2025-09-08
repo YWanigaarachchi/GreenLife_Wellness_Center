@@ -203,7 +203,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           <input type="submit" value="Login">
         </form>
         <div class="register-link">
-          <p>Don't have an account? <a href="reset_password.php">Register here</a></p>
+          <p>Don't have an account? <a href="register.php">Register here</a></p>
           <p><a href="forgot_password.php">Forgot My Password?</a></p> <!-- Added -->
         </div>
       </div>

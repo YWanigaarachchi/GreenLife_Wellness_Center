@@ -1,162 +1,140 @@
 <?php
 session_start();
 
-// Example: Dummy session values (replace with real database session data after login)
-if (!isset($_SESSION['user_name'])) {
-    $_SESSION['user_name'];
-    $_SESSION['user_email'];
-    $_SESSION['user_phone'];
-}
+// Example session data (replace with real login session later)
+$_SESSION['user_name'] = "John Doe";
+$_SESSION['user_email'] = "johndoe@email.com";
+$_SESSION['user_phone'] = "0712345678";
+
+$name  = $_SESSION['user_name'];
+$email = $_SESSION['user_email'];
+$phone = $_SESSION['user_phone'];
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Profile - GreenLife Wellness Center</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <title>Profile - GreenLife Wellness</title>
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-        background: #f5f7fa;
-        color: #2c3e50;
+      font-family: Arial, sans-serif;
+      display: flex;
+      min-height: 100vh;
+      background: #ecf0f1;
     }
 
-    header {
-        background: #28a745;
-        color: white;
-        padding: 15px 25px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
+    /* Sidebar */
+    .sidebar {
+      width: 220px;
+      background: #2c3e50;
+      color: #fff;
+      padding: 20px 0;
+      flex-shrink: 0;
+    }
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+    .sidebar a {
+      display: block;
+      color: #fff;
+      padding: 12px 20px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .sidebar a:hover {
+      background: #34495e;
     }
 
-    header h1 { font-size: 1.5rem; }
-    header nav a {
-        color: white;
-        text-decoration: none;
-        margin-left: 15px;
-        font-weight: bold;
-    }
-    header nav a:hover { text-decoration: underline; }
-
-    .container {
-        max-width: 1100px;
-        margin: 30px auto;
-        background: white;
-        padding: 25px;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    /* Main Content */
+    .main {
+      flex: 1;
+      padding: 20px;
     }
 
-    h1 {
-        margin-bottom: 20px;
-        color: #28a745;
-    }
-
+    /* Profile Card */
     .card {
-        background: #f8f9fa;
-        padding: 20px;
-        border-radius: 10px;
-        margin-bottom: 20px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      max-width: 500px;
+      margin: auto;
+    }
+    .card h3 {
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+    label {
+      display: block;
+      margin: 8px 0 5px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 15px;
+      background: #27ae60;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #219150;
     }
 
-    .card h2 {
-        margin-bottom: 15px;
-        color: #28a745;
-    }
-
-    .btn {
-        display: inline-block;
-        margin: 8px 5px;
-        padding: 10px 15px;
-        background: #28a745;
-        color: white;
-        text-decoration: none;
-        border-radius: 6px;
-        transition: background 0.3s;
-    }
-
-    .btn:hover {
-        background: #218838;
-    }
-
-    footer {
-        text-align: center;
-        margin-top: 40px;
-        padding: 15px;
-        background: #2c3e50;
-        color: white;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-        .container {
-            margin: 15px;
-            padding: 15px;
-        }
-        header {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        header nav {
-            margin-top: 10px;
-        }
+    /* Mobile */
+    @media(max-width: 768px) {
+      body { flex-direction: column; }
+      .sidebar { width: 100%; display: flex; overflow-x: auto; }
+      .sidebar a { flex: 1; text-align: center; }
     }
   </style>
 </head>
 <body>
 
-<header>
-    <h1>🌿 GreenLife Client Dashboard</h1>
-    <nav>
-        <a href="client_dashboard.php">Home</a>
-        <a href="profile.php">Profile</a>
-        <a href="appointment.php">Appointments</a>
-        <a href="messages.php">Messages</a> <!-- Added Messages -->
-        <a href="logout.php">Logout</a>
-    </nav>
-</header>
-  
-<div class="container">
-    <h1>Welcome, <?php echo htmlspecialchars($_SESSION['user_name']); ?>!</h1>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>GreenLife</h2>
+    <a href="client_dashboard.php">Home</a>
+    <a href="profile.php">Profile</a>
+    <a href="appointment.php">Appointments</a>
+    <a href="clent_contact.php">Contact</a>
+    <a href="inquiry.php">Inquiries</a>
+    <a href="logout.php">Log Out</a>
+  </div>
 
-    <!-- Card 1: Login Details -->
+  <!-- Main Content -->
+  <div class="main">
     <div class="card">
-      <h2>👤 Client Details</h2>
-      <p><strong>Name:</strong> <?php echo htmlspecialchars($_SESSION['user_name']); ?></p>
-      <p><strong>Email:</strong> <?php echo htmlspecialchars($_SESSION['user_email']); ?></p>
-      <p><strong>Phone:</strong> <?php echo htmlspecialchars($_SESSION['user_phone']); ?></p>
-    </div>
+      <h3>👤 Profile Information</h3>
+      <form method="post" action="update_profile.php">
+        <label>Name</label>
+        <input type="text" name="name" value="<?php echo htmlspecialchars($name); ?>">
 
-    <!-- Card 2: Update Profile & Change Password -->
-    <div class="card">
-      <h2>⚙️ Account Settings</h2>
-      <a href="update_profile.php" class="btn">Update Profile</a>
-      <a href="change_password.php" class="btn">Change Password</a>
-    </div>
+        <label>Email</label>
+        <input type="email" name="email" value="<?php echo htmlspecialchars($email); ?>">
 
-    <!-- Card 3: Book Appointment -->
-    <div class="card">
-      <h2>📅 Book Appointment</h2>
-      <p>Schedule your next wellness session with ease.</p>
-      <a href="book_appointment.php" class="btn">Book Now</a>
-    </div>
+        <label>Phone</label>
+        <input type="text" name="phone" value="<?php echo htmlspecialchars($phone); ?>">
 
-    <!-- Card 4: Contact Us -->
-    <div class="card">
-      <h2>📞 Contact Us</h2>
-      <p>If you have any questions, reach out to our support team.</p>
-      <a href="contact.php" class="btn">Get in Touch</a>
+        <button type="submit">Update Profile</button>
+      </form>
     </div>
-</div>
-
-<footer>
-    &copy; <?php echo date("Y"); ?> GreenLife Wellness Center. All rights reserved.
-</footer>
+  </div>
 
 </body>
 </html>
