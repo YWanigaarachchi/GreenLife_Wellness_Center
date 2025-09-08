@@ -1,142 +1,118 @@
-<?php session_start(); ?>
+<?php
+session_start();
+
+// Example user session
+if (!isset($_SESSION['user_name'])) {
+    $_SESSION['user_name'] = "John Doe";
+    $_SESSION['user_email'] = "john@example.com";
+}
+
+// If form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $service = $_POST['service'];
+    $date = $_POST['date'];
+    $time = $_POST['time'];
+    $notes = $_POST['notes'];
+
+    // Save booking to DB (later connect with MySQL)
+    // For now just simulate success
+    $success = true;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Appointments - GreenLife Wellness</title>
+  <title>Book a Service - GreenLife</title>
   <style>
-    /* Reset */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
-      display: flex;
-      min-height: 100vh;
-      background: #ecf0f1;
+      background: #f4f7f9;
     }
-
-    /* Sidebar */
-    .sidebar {
-      width: 220px;
-      background: #2c3e50;
-      color: #fff;
-      padding: 20px 0;
-      flex-shrink: 0;
-    }
-    .sidebar h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 18px;
-    }
-    .sidebar a {
-      display: block;
-      color: #fff;
-      padding: 12px 20px;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
-    .sidebar a:hover {
-      background: #34495e;
-    }
-
-    /* Main */
-    .main {
-      flex: 1;
-      padding: 20px;
-    }
-
-    /* Card */
-    .card {
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .card h3 {
-      margin-bottom: 15px;
-      color: #2c3e50;
-    }
-
-    /* Table */
-    table {
+    .container {
       width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
+      max-width: 600px;
+      margin: 60px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    th, td {
+    h2 {
+      text-align: center;
+      color: #1d3557;
+      margin-bottom: 20px;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin: 12px 0 5px;
+      color: #333;
+    }
+    input, select, textarea {
+      width: 100%;
       padding: 10px;
       border: 1px solid #ccc;
-      text-align: center;
-    }
-    th {
-      background: #27ae60;
-      color: #fff;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      font-size: 14px;
     }
     button {
-      padding: 6px 10px;
+      width: 100%;
+      padding: 12px;
+      background: #2a9d8f;
+      color: white;
       border: none;
-      background: #e74c3c;
-      color: #fff;
-      border-radius: 5px;
+      border-radius: 6px;
+      font-size: 16px;
       cursor: pointer;
-      transition: background 0.3s;
     }
     button:hover {
-      background: #c0392b;
+      background: #21867a;
     }
-
-    /* Mobile */
-    @media(max-width: 768px) {
-      body { flex-direction: column; }
-      .sidebar { width: 100%; display: flex; overflow-x: auto; }
-      .sidebar a { flex: 1; text-align: center; }
-      table { font-size: 14px; }
+    .success {
+      background: #d4edda;
+      color: #155724;
+      padding: 12px;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <h2>GreenLife</h2>
-    <a href="client_dashboard.php">Home</a>
-    <a href="profile.php">Profile</a>
-    <a href="appointment.php">Appointments</a>
-    <a href="clent_contact.php">Contact</a>
-    <a href="inquiry.php">Inquiries</a>
-    <a href="logout.php">Log Out</a>
-  </div>
+<div class="container">
+  <h2>Book a Service</h2>
 
-  <!-- Main -->
-  <div class="main">
-    <div class="card">
-      <h3>📅 My Appointments</h3>
-      <table>
-        <tr>
-          <th>Date</th>
-          <th>Time</th>
-          <th>Doctor</th>
-          <th>Status</th>
-          <th>Action</th>
-        </tr>
-        <tr>
-          <td>12th Sept</td>
-          <td>10:00 AM</td>
-          <td>Dr. Smith</td>
-          <td>Confirmed</td>
-          <td><button>Cancel</button></td>
-        </tr>
-        <tr>
-          <td>20th Sept</td>
-          <td>02:00 PM</td>
-          <td>Dr. Lee</td>
-          <td>Pending</td>
-          <td><button>Cancel</button></td>
-        </tr>
-      </table>
-    </div>
-  </div>
+  <?php if (!empty($success)) { ?>
+    <div class="success">✅ Your booking has been submitted successfully!</div>
+  <?php } ?>
+
+  <form method="POST">
+    <label for="service">Choose a Service</label>
+    <select name="service" id="service" required>
+      <option value="">-- Select --</option>
+      <option value="Ayurvedic Therapy">Ayurvedic Therapy</option>
+      <option value="Yoga & Meditation">Yoga & Meditation</option>
+      <option value="Nutrition Consultation">Nutrition Consultation</option>
+      <option value="Physiotherapy">Physiotherapy</option>
+      <option value="Massage Therapy">Massage Therapy</option>
+    </select>
+
+    <label for="date">Select Date</label>
+    <input type="date" id="date" name="date" required>
+
+    <label for="time">Select Time</label>
+    <input type="time" id="time" name="time" required>
+
+    <label for="notes">Additional Notes</label>
+    <textarea id="notes" name="notes" rows="4" placeholder="Any special requests..."></textarea>
+
+    <button type="submit">Confirm Booking</button>
+  </form>
+</div>
 
 </body>
 </html>

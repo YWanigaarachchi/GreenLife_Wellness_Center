@@ -2,16 +2,20 @@
 include("db.php");
 session_start();
 
-if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] !== 'admin') {
-    header("Location: login.php");
-    exit;
-}
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $user_id = $_SESSION['user_id'];
+    $subject = $_POST['subject'];
+    $message = $_POST['message'];
 
-$sql = "SELECT i.id, u.name AS client_name, i.message 
-        FROM inquiries i
-        JOIN users u ON i.client_id = u.id";
-$result = $conn->query($sql);
+    $sql = "INSERT INTO feedback (user_id, subject, message) VALUES (?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("iss", $user_id, $subject, $message);
+    $stmt->execute();
+
+    echo "Feedback sent successfully.";
+}
 ?>
+
 
 <!DOCTYPE html>
 <html>
