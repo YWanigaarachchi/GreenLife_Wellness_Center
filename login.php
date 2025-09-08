@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         header("Location: therapist_dashboard.php");
                         break;
                     case 'admin':
-                        header("Location: admin_dashboard.php");
+                        header("Location: admin_Dashboard.php");
                         break;
                     default:
                         header("Location: login.php");
