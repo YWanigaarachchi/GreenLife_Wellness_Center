@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     .sidebar {
       position: fixed;
       top: 0; left: 0;
-      width: 200px; height: 100%;
+      width: 250px; height: 100%;
       background: #1d3557;
       color: white;
       padding-top: 20px;
@@ -187,7 +187,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   <!-- Sidebar -->
   <div class="sidebar">
-    <h2>GreenLife Wellness</h2>
+    <h2>Client Dashboard <br> GreenLife Wellness</h2>
     <a href="client_dashboard.php">Home</a>
     <a href="profile.php">Profile</a>
     <a href="book_appointment.php" class="active">Appointments</a>
