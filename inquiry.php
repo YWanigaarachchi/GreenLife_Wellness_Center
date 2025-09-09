@@ -44,9 +44,12 @@
     .main {
       flex: 1;
       padding: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
     }
 
-    /* Inquiries Card */
+    /* Card */
     .card {
       background: #fff;
       padding: 20px;
@@ -79,6 +82,7 @@
       body { flex-direction: column; }
       .sidebar { width: 100%; display: flex; overflow-x: auto; }
       .sidebar a { flex: 1; text-align: center; }
+      .main { grid-template-columns: 1fr; }
       table { font-size: 14px; }
     }
   </style>
@@ -92,12 +96,14 @@
     <a href="profile.php">Profile</a>
     <a href="book_appointment.php">Appointments</a>
     <a href="clent_contact.php">Contact</a>
-    <a href="inquiry.php">Inquiries</a>
+    <a href="inquiry.php"> Inquiries</a>
     <a href="logout.php">Log Out</a>
   </div>
 
   <!-- Main -->
   <div class="main">
+    
+    <!-- My Inquiries -->
     <div class="card">
       <h3>📩 My Inquiries</h3>
       <table>
@@ -118,6 +124,23 @@
         </tr>
       </table>
     </div>
+
+    <!-- New Inquiry -->
+    <div class="card">
+      <h3>➕ New Inquiry</h3>
+      <form action="save_inquiry.php" method="POST">
+        <label>Subject:</label><br>
+        <input type="text" name="subject" required style="width:100%; padding:8px; margin:8px 0;"><br>
+        
+        <label>Message:</label><br>
+        <textarea name="message" rows="5" required style="width:100%; padding:8px; margin:8px 0;"></textarea><br>
+        
+        <button type="submit" style="background:#8e44ad; color:#fff; padding:10px 15px; border:none; border-radius:5px; cursor:pointer;">
+          Submit Inquiry
+        </button>
+      </form>
+    </div>
+
   </div>
 
 </body>
