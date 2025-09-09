@@ -62,7 +62,6 @@ $result = $conn->query($sql);
             <td><?php echo htmlspecialchars($row['email']); ?></td>
             <td><?php echo htmlspecialchars($row['phone']); ?></td>
             <td>
-              <button class="edit-btn" onclick="window.location.href='edit_client.php?id=<?php echo $row['user_id']; ?>'">Edit</button>
               <button class="delete-btn" onclick="if(confirm('Are you sure?')) window.location.href='delete_client.php?id=<?php echo $row['user_id']; ?>'">Delete</button>
             </td>
           </tr>
