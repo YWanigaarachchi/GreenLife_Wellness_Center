@@ -1,4 +1,26 @@
-<?php session_start(); ?>
+<?php 
+session_start();
+include("db.php"); // make sure db.php connects to your DB
+
+// Only allow admins
+//if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] !== 'admin') {
+//    header("Location: login.php");
+//    exit;
+//}
+
+// Fetch appointments with client + therapist info
+$sql = "
+    SELECT a.appointment_id, 
+           u.first_name, u.last_name, 
+           a.appointment_date, a.appointment_time, 
+           a.status, t.therapist_name
+    FROM appointments a
+    JOIN users u ON a.client_id = u.user_id
+    JOIN therapists t ON a.therapist_id = t.therapist_id
+    ORDER BY a.appointment_date, a.appointment_time
+";
+$result = $conn->query($sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +49,6 @@
     <a href="admin_clients.php">Manage Clients</a>
     <a href="admin_appointments.php">Appointments</a>
     <a href="admin_inquiries.php">Inquiries</a>
-    <a href="admin_messages.php">Messages</a>
     <a href="admin_reports.php">Reports</a>
     <a href="logout.php">Log Out</a>
   </div>
@@ -35,9 +56,28 @@
   <div class="main">
     <h1>📅 Appointments</h1>
     <table>
-      <tr><th>ID</th><th>Client</th><th>Date</th><th>Time</th><th>Status</th></tr>
-      <tr><td>1</td><td>John Doe</td><td>12th Sept</td><td>10:00 AM</td><td>Confirmed</td></tr>
-      <tr><td>2</td><td>Jane Smith</td><td>15th Sept</td><td>2:00 PM</td><td>Pending</td></tr>
+      <tr>
+        <th>ID</th>
+        <th>Client</th>
+        <th>Therapist</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Status</th>
+      </tr>
+      <?php if ($result && $result->num_rows > 0): ?>
+        <?php while($row = $result->fetch_assoc()): ?>
+          <tr>
+            <td><?php echo htmlspecialchars($row['appointment_id']); ?></td>
+            <td><?php echo htmlspecialchars($row['first_name'] . " " . $row['last_name']); ?></td>
+            <td><?php echo htmlspecialchars($row['therapist_name']); ?></td>
+            <td><?php echo htmlspecialchars(date("d M Y", strtotime($row['appointment_date']))); ?></td>
+            <td><?php echo htmlspecialchars(date("h:i A", strtotime($row['appointment_time']))); ?></td>
+            <td><?php echo ucfirst($row['status']); ?></td>
+          </tr>
+        <?php endwhile; ?>
+      <?php else: ?>
+        <tr><td colspan="6" style="text-align:center;">No appointments found</td></tr>
+      <?php endif; ?>
     </table>
   </div>
 </body>

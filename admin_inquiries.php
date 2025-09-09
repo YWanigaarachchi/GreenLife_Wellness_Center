@@ -27,7 +27,6 @@
     <a href="admin_clients.php">Manage Clients</a>
     <a href="admin_appointments.php">Appointments</a>
     <a href="admin_inquiries.php">Inquiries</a>
-    <a href="admin_messages.php">Messages</a>
     <a href="admin_reports.php">Reports</a>
     <a href="logout.php">Log Out</a>
   </div>
