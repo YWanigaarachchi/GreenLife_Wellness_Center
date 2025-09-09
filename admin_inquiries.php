@@ -1,4 +1,23 @@
-<?php session_start(); ?>
+<?php 
+session_start();
+include("db.php"); // make sure db.php connects to your DB
+
+// Only allow admins
+//if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] !== 'admin') {
+//    header("Location: login.php");
+//    exit;
+//}
+
+// Fetch feedback with client info
+$sql = "
+    SELECT f.feedback_id, u.first_name, u.last_name, u.email, 
+           f.subject, f.message, f.created_at
+    FROM feedback f
+    JOIN users u ON f.user_id = u.user_id
+    ORDER BY f.created_at DESC
+";
+$result = $conn->query($sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,9 +53,28 @@
   <div class="main">
     <h1>📨 Client Inquiries</h1>
     <table>
-      <tr><th>ID</th><th>Name</th><th>Email</th><th>Message</th><th>Date</th></tr>
-      <tr><td>1</td><td>John Doe</td><td>john@email.com</td><td>What are your opening hours?</td><td>07-Sept-2025</td></tr>
-      <tr><td>2</td><td>Jane Smith</td><td>jane@email.com</td><td>Can I reschedule my appointment?</td><td>08-Sept-2025</td></tr>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Subject</th>
+        <th>Message</th>
+        <th>Date</th>
+      </tr>
+      <?php if ($result && $result->num_rows > 0): ?>
+        <?php while($row = $result->fetch_assoc()): ?>
+          <tr>
+            <td><?php echo htmlspecialchars($row['feedback_id']); ?></td>
+            <td><?php echo htmlspecialchars($row['first_name'] . " " . $row['last_name']); ?></td>
+            <td><?php echo htmlspecialchars($row['email']); ?></td>
+            <td><?php echo htmlspecialchars($row['subject']); ?></td>
+            <td><?php echo nl2br(htmlspecialchars($row['message'])); ?></td>
+            <td><?php echo htmlspecialchars(date("d-M-Y H:i", strtotime($row['created_at']))); ?></td>
+          </tr>
+        <?php endwhile; ?>
+      <?php else: ?>
+        <tr><td colspan="6" style="text-align:center;">No inquiries found</td></tr>
+      <?php endif; ?>
     </table>
   </div>
 </body>

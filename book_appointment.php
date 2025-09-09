@@ -1,17 +1,33 @@
 <?php
 session_start();
+include("db.php"); // your DB connection file
 
-// Dummy user session data (replace with DB later)
-if (!isset($_SESSION['user_name'])) {
-    $_SESSION['user_name'] = "John Doe";
-    $_SESSION['user_email'] = "john@example.com";
+// ✅ Make sure the user is logged in
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit;
 }
 
-// Dummy appointments data (replace with DB query later)
-$appointments = [
-    ["date" => "12th Sept", "time" => "10:00 AM", "doctor" => "Dr. Smith", "status" => "Confirmed"],
-    ["date" => "20th Sept", "time" => "02:00 PM", "doctor" => "Dr. Lee", "status" => "Pending"]
-];
+$user_id = $_SESSION['user_id']; // logged-in client
+$user_name = $_SESSION['user_name'];
+$user_email = $_SESSION['user_email'];
+
+// Fetch appointments from DB for this client
+$appointments = [];
+$sql = "SELECT a.appointment_id, a.appointment_date, a.appointment_time, a.status, a.notes, t.name AS therapist_name
+        FROM appointments a
+        JOIN therapists t ON a.therapist_id = t.therapist_id
+        WHERE a.client_id = ?
+        ORDER BY a.appointment_date DESC, a.appointment_time DESC";
+
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+while ($row = $result->fetch_assoc()) {
+    $appointments[] = $row;
+}
 
 // Handle booking form submission
 $success = false;
@@ -21,10 +37,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $time = $_POST['time'];
     $notes = $_POST['notes'];
 
-    // Save booking to DB later...
-    $success = true;
+    // For now, assign a random therapist (later add dropdown)
+    $therapist_id = 1;
+
+    $insert = $conn->prepare("INSERT INTO appointments (client_id, therapist_id, appointment_date, appointment_time, status, notes) 
+                              VALUES (?, ?, ?, ?, 'pending', ?)");
+    $insert->bind_param("iisss", $user_id, $therapist_id, $date, $time, $notes);
+
+    if ($insert->execute()) {
+        $success = true;
+        header("Location: book_appointment.php"); // refresh to show new appointment
+        exit;
+    }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -203,16 +230,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h3>📅 My Appointments</h3>
     <table>
       <tr>
-        <th>Date</th><th>Time</th><th>Doctor</th><th>Status</th><th>Action</th>
+        <th>Date</th><th>Time</th><th>Therapist</th><th>Status</th><th>Action</th>
       </tr>
-      <?php foreach ($appointments as $appt) { ?>
+      <?php if (count($appointments) > 0) { 
+        foreach ($appointments as $appt) { ?>
       <tr>
-        <td><?= $appt['date'] ?></td>
-        <td><?= $appt['time'] ?></td>
-        <td><?= $appt['doctor'] ?></td>
-        <td><?= $appt['status'] ?></td>
-        <td><button class="btn-cancel">Cancel</button></td>
+        <td><?= htmlspecialchars($appt['appointment_date']) ?></td>
+        <td><?= htmlspecialchars($appt['appointment_time']) ?></td>
+        <td><?= htmlspecialchars($appt['therapist_name']) ?></td>
+        <td><?= ucfirst($appt['status']) ?></td>
+        <td>
+          <?php if ($appt['status'] == 'pending' || $appt['status'] == 'confirmed') { ?>
+            <form method="POST" action="cancel_appointment.php" style="display:inline;">
+              <input type="hidden" name="appointment_id" value="<?= $appt['appointment_id'] ?>">
+              <button type="submit" class="btn-cancel">Cancel</button>
+            </form>
+          <?php } ?>
+        </td>
       </tr>
+      <?php } } else { ?>
+        <tr><td colspan="5">No appointments booked yet.</td></tr>
       <?php } ?>
     </table>
   </div>
@@ -221,41 +258,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <div class="section">
     <h3>🌿 Our Services</h3>
     <div class="services">
-      <div class="card">
-        <i>🌱</i>
-        <h4>Ayurvedic Therapy</h4>
-        <p>Restore body balance with herbal oils, massages & detox.</p>
-        <div class="price">From Rs. 5,000</div>
-        <a href="#booking" class="btn-book">Book Now</a>
-      </div>
-      <div class="card">
-        <i>🧘</i>
-        <h4>Yoga & Meditation</h4>
-        <p>Improve flexibility & reduce stress with calming sessions.</p>
-        <div class="price">From Rs. 3,000</div>
-        <a href="#booking" class="btn-book">Book Now</a>
-      </div>
-      <div class="card">
-        <i>🍎</i>
-        <h4>Nutrition Consultation</h4>
-        <p>Get custom meal plans & expert guidance for wellness.</p>
-        <div class="price">From Rs. 4,500</div>
-        <a href="#booking" class="btn-book">Book Now</a>
-      </div>
-      <div class="card">
-        <i>🏋️</i>
-        <h4>Physiotherapy</h4>
-        <p>Improve mobility, relieve pain & recover faster.</p>
-        <div class="price">From Rs. 6,000</div>
-        <a href="#booking" class="btn-book">Book Now</a>
-      </div>
-      <div class="card">
-        <i>💆</i>
-        <h4>Massage Therapy</h4>
-        <p>Relax & refresh with stress-relieving massage therapy.</p>
-        <div class="price">From Rs. 4,000</div>
-        <a href="#booking" class="btn-book">Book Now</a>
-      </div>
+      <div class="card"><h4>Ayurvedic Therapy</h4><p>Restore balance with herbal oils, massages & detox.</p><div class="price">From Rs. 5,000</div><a href="#booking" class="btn-book">Book Now</a></div>
+      <div class="card"><h4>Yoga & Meditation</h4><p>Improve flexibility & reduce stress with calming sessions.</p><div class="price">From Rs. 3,000</div><a href="#booking" class="btn-book">Book Now</a></div>
+      <div class="card"><h4>Nutrition Consultation</h4><p>Custom meal plans & expert wellness guidance.</p><div class="price">From Rs. 4,500</div><a href="#booking" class="btn-book">Book Now</a></div>
+      <div class="card"><h4>Physiotherapy</h4><p>Improve mobility, relieve pain & recover faster.</p><div class="price">From Rs. 6,000</div><a href="#booking" class="btn-book">Book Now</a></div>
+      <div class="card"><h4>Massage Therapy</h4><p>Relax & refresh with stress-relieving therapy.</p><div class="price">From Rs. 4,000</div><a href="#booking" class="btn-book">Book Now</a></div>
     </div>
   </div>
 

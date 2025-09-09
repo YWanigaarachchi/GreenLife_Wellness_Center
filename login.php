@@ -21,7 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $user = $result->fetch_assoc();
 
             if (password_verify($password, $user['password'])) {
-                $_SESSION['user_id'] = $user['id'];
+                // Fixed: Use correct column name 'user_id'
+                $_SESSION['user_id'] = $user['user_id'];
                 $_SESSION['user_name'] = $user['name'];
                 $_SESSION['user_role'] = $user['role'];
 
@@ -71,13 +72,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       display: flex;
     }
 
-    .login-wrapper {
-      display: flex;
-      width: 100%;
-      height: 100vh;
-    }
+    .login-wrapper { display: flex; width: 100%; height: 100vh; }
 
-    /* Left side image */
     .login-left {
       flex: 1;
       background: url('wellness.jpg') no-repeat center center/cover;
@@ -94,7 +90,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       border-radius: 12px;
     }
 
-    /* Right side login */
     .login-right {
       flex: 1.5;
       display: flex;
@@ -143,54 +138,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       transition: background 0.3s;
     }
 
-    .login-container input[type="submit"]:hover {
-      background: #218838;
-    }
+    .login-container input[type="submit"]:hover { background: #218838; }
 
-    .message {
-      color: red;
-      text-align: center;
-      margin-bottom: 15px;
-    }
+    .message { color: red; text-align: center; margin-bottom: 15px; }
 
     .register-link {
       margin-top: 20px;
       text-align: center;
       font-size: 0.95rem;
     }
+    .register-link a { color: #007bff; text-decoration: none; }
+    .register-link a:hover { text-decoration: underline; }
 
-    .register-link a {
-      color: #007bff;
-      text-decoration: none;
-    }
-
-    .register-link a:hover {
-      text-decoration: underline;
-    }
-
-    /* Responsive */
     @media (max-width: 900px) {
-      .login-wrapper {
-        flex-direction: column;
-      }
-      .login-left {
-        height: 35vh;
-      }
-      .login-right {
-        height: 65vh;
-      }
+      .login-wrapper { flex-direction: column; }
+      .login-left { height: 35vh; }
+      .login-right { height: 65vh; }
     }
   </style>
 </head>
 <body>
   <div class="login-wrapper">
-    
-    <!-- Left branding -->
     <div class="login-left">
       <h1>🌿 GreenLife Wellness Center</h1>
     </div>
-
-    <!-- Right login form -->
     <div class="login-right">
       <div class="login-container">
         <h2>Login</h2>
@@ -204,7 +175,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </form>
         <div class="register-link">
           <p>Don't have an account? <a href="register.php">Register here</a></p>
-          <p><a href="forgot_password.php">Forgot My Password?</a></p> <!-- Added -->
+          <p><a href="forgot_password.php">Forgot My Password?</a></p>
         </div>
       </div>
     </div>
