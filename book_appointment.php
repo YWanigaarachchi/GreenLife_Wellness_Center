@@ -180,7 +180,6 @@ if ($service_result) {
                 <h4><?= htmlspecialchars($service['name']) ?></h4>
                 <p><?= htmlspecialchars($service['description']) ?></p>
                 <div class="price">From Rs. <?= number_format($service['price'], 0) ?></div>
-                <a href="#booking" class="btn-book">Book Now</a>
               </div>
       <?php } } else { echo "<p>No services available at the moment.</p>"; } ?>
     </div>
