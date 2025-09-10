@@ -20,7 +20,13 @@ $phone = $_SESSION['user_phone'];
   <style>
     /* Basic Reset */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; display: flex; min-height: 100vh; }
+    body { font-family: Arial, sans-serif; display: flex; min-height: 100vh; flex-direction: column; }
+
+    /* Sidebar + Content wrapper */
+    .wrapper {
+      display: flex;
+      flex: 1;
+    }
 
     /* Sidebar */
     .sidebar {
@@ -76,9 +82,20 @@ $phone = $_SESSION['user_phone'];
       color: #2c3e50;
     }
 
+    /* Footer */
+    .footer {
+      background: #2c3e50;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+    }
+    .footer-bottom p {
+      font-size: 14px;
+    }
+
     /* Mobile */
     @media(max-width: 768px) {
-      body { flex-direction: column; }
+      .wrapper { flex-direction: column; }
       .sidebar { width: 100%; display: flex; overflow-x: auto; }
       .sidebar a { flex: 1; text-align: center; }
     }
@@ -86,38 +103,46 @@ $phone = $_SESSION['user_phone'];
 </head>
 <body>
 
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <h2>Client Dashboard <br> GreenLife Wellness</h2>
-    <a href="client_dashboard.php">Home</a>
-    <a href="profile.php">Profile</a>
-    <a href="book_appointment.php">Appointments</a>
-    <a href="clent_contact.php">Contact</a>
-    <a href="inquiry.php">Inquiries</a>
-    <a href="logout.php">Log Out</a>
-  </div>
+  <div class="wrapper">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h2>Client Dashboard <br> GreenLife Wellness</h2>
+      <a href="client_dashboard.php">🏠 Home</a>
+      <a href="profile.php">👤 Profile</a>
+      <a href="book_appointment.php">📅 Appointments</a>
+      <a href="inquiry.php">💬 Inquiries</a>
+      <a href="logout.php">🚪 Log Out</a>
+    </div>
 
-  <!-- Main Content -->
-  <div class="main">
-    <div class="welcome">Welcome, <?php echo htmlspecialchars($name); ?>!</div>
+    <!-- Main Content -->
+    <div class="main">
+      <div class="welcome">Welcome, Client Dashboard </div>
 
-    <div class="cards">
-      <div class="card">
-        <h3>🔔 Notifications</h3>
-        <p>You have 2 new messages.</p>
-      </div>
+      <div class="cards">
+        <div class="card">
+          <h3>🔔 Notifications</h3>
+          <p>You have 2 new messages.</p>
+        </div>
 
-      <div class="card">
-        <h3>📅 Upcoming Appointments</h3>
-        <p>Next appointment: 12th Sept, 10:00 AM</p>
-      </div>
+        <div class="card">
+          <h3>📅 Upcoming Appointments</h3>
+          <p>Next appointment: 12th Sept, 10:00 AM</p>
+        </div>
 
-      <div class="card">
-        <h3>💡 Wellness Tips</h3>
-        <p>Drink at least 8 glasses of water daily.</p>
+        <div class="card">
+          <h3>💡 Wellness Tips</h3>
+          <p>Drink at least 8 glasses of water daily.</p>
+        </div>
       </div>
     </div>
   </div>
+
+  <!-- ===== Footer Section ===== -->
+  <footer class="footer">
+    <div class="footer-bottom">
+      <p>© 2025 GreenLife Wellness Center | All Rights Reserved</p>
+    </div>
+  </footer>
 
 </body>
 </html>

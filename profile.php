@@ -154,7 +154,6 @@ $conn->close();
     <a href="client_dashboard.php">🏠 Home</a>
     <a href="profile.php">👤 Profile</a>
     <a href="book_appointment.php">📅 Appointments</a>
-    <a href="clent_contact.php">📞 Contact</a>
     <a href="inquiry.php">💬 Inquiries</a>
     <a href="logout.php">🚪 Log Out</a>
   </div>

@@ -53,8 +53,8 @@ $feedback_result = $conn->query($feedback_sql);
     <!-- Sidebar -->
     <div class="col-md-2 sidebar">
       <h4>Therapist</h4>
-      <a href="therapist_dashboard.php">Dashboard</a>
-      <a href="logout.php">Log Out</a>
+      <a href="therapist_dashboard.php">🏠 Dashboard</a>
+      <a href="logout.php">🚪 Log Out</a>
     </div>
 
     <!-- Main Content -->
