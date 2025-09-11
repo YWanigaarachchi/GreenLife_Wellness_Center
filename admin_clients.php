@@ -3,10 +3,10 @@ session_start();
 include("db.php"); // make sure this file contains your DB connection
 
 // Only allow admins
-//if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] !== 'admin') {
-//    header("Location: login.php");
-//    exit;
-//}
+if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] !== 'admin') {
+    header("Location: login.php");
+   exit;
+}
 
 // Fetch all clients from DB
 $sql = "SELECT user_id, first_name, last_name, email, phone FROM users WHERE role='client'";
@@ -38,13 +38,13 @@ $result = $conn->query($sql);
 </head>
 <body>
   <div class="sidebar">
-    <h2>Admin Dashboard</h2>
-    <a href="admin_dashboard.php">Dashboard</a>
-    <a href="admin_clients.php">Manage Clients</a>
-    <a href="admin_appointments.php">Appointments</a>
-    <a href="admin_inquiries.php">Inquiries</a>
+    <h2>Admin Clients</h2>
+    <a href="admin_dashboard.php">🏠 Dashboard</a>
+    <a href="admin_clients.php">👤 Manage Clients</a>
+    <a href="admin_appointments.php">📅 Appointments</a>
+    <a href="admin_inquiries.php">💬 Inquiries</a>
     <a href="admin_reports.php">Reports</a>
-    <a href="logout.php">Log Out</a>
+    <a href="logout.php">🚪 Log Out</a>
   </div>
 
   <div class="main">

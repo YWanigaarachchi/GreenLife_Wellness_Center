@@ -84,7 +84,7 @@ $feedback_result = $conn->query($feedback_sql);
           <table class="table table-bordered table-striped mt-2">
             <thead class="table-dark">
               <tr>
-                <th>#</th>
+                <th>**</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>

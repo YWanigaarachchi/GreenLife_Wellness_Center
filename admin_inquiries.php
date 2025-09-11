@@ -53,13 +53,13 @@ $result = $conn->query($sql);
 </head>
 <body>
   <div class="sidebar">
-    <h2>Admin Panel</h2>
-    <a href="admin_dashboard.php">Dashboard</a>
-    <a href="admin_clients.php">Manage Clients</a>
-    <a href="admin_appointments.php">Appointments</a>
-    <a href="admin_inquiries.php">Inquiries</a>
+    <h2>Admin Inquiries</h2>
+    <a href="admin_dashboard.php">🏠 Dashboard</a>
+    <a href="admin_clients.php">👤 Manage Clients</a>
+    <a href="admin_appointments.php">📅 Appointments</a>
+    <a href="admin_inquiries.php">💬 Inquiries</a>
     <a href="admin_reports.php">Reports</a>
-    <a href="logout.php">Log Out</a>
+    <a href="logout.php">🚪 Log Out</a>
   </div>
 
   <div class="main">
