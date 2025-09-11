@@ -148,7 +148,7 @@ if ($result) {
     <div class="modal-content">
       <button class="close-btn" onclick="closeModal('therapistModal')">X</button>
       <h2>Add New Therapist</h2>
-      <form action="save_user.php" method="POST">
+      <form action="save_therapist.php" method="POST">
         <input type="hidden" name="role" value="therapist">
         <label>First Name</label><input type="text" name="first_name" required>
         <label>Last Name</label><input type="text" name="last_name" required>
@@ -156,6 +156,15 @@ if ($result) {
         <label>Phone</label><input type="text" name="phone" required>
         <label>Username</label><input type="text" name="username" required>
         <label>Password</label><input type="password" name="password" required>
+        <label>specialization</label>
+          <select name="specialization" id=" specialization" required>
+          <option value="Ayurvedic Specialist">Ayurvedic Specialist</option>
+          <option value="Yoga & Meditation Instructor">Yoga & Meditation Instructor</option>
+          <option value="Nutrition Consultation">Nutrition Consultation</option>
+          <option value="Massage Therapy">Massage Therapy</option>
+        </select>
+        <label>experience_years</label><input type="text" name="experience_years" required>
+        <label>bio</label><input type="text" name="bio" required>
         <button type="submit" class="save-btn">Save Therapist</button>
       </form>
     </div>

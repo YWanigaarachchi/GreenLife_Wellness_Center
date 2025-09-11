@@ -3,9 +3,24 @@
 session_start();
 include("db.php"); // Include your database connection
 
-// Example session variable (replace with session login info)
-$therapist_name = "Dr. Alex"; 
-$therapist_id = 1; // Replace with the logged-in therapist ID from session
+// Assume the logged-in user's user_id is stored in session
+$user_id = $_SESSION['user_id'] ?? null;
+
+if (!$user_id) {
+    die("⚠️ You must be logged in to view appointments.");
+}
+// Step 1: Get therapist_id from therapists table
+$therapist_sql = "SELECT therapist_id FROM therapists WHERE user_id = ?";
+$stmt = $conn->prepare($therapist_sql);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$stmt->bind_result($therapist_id);
+$stmt->fetch();
+$stmt->close();
+
+if (!$therapist_id) {
+    die("⚠️ Therapist not found for this user.");
+}
 
 // Fetch all clients
 $clients_sql = "SELECT user_id, first_name, last_name, email, phone FROM users WHERE role='client'";
