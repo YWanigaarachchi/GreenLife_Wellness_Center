@@ -30,8 +30,8 @@ The system enables **appointment scheduling, client management, and secure commu
 ## 🛠️ Tech Stack
 
 * **Frontend**: HTML5, CSS3, JavaScript
-* **Backend**: PHP / Node.js (choose your actual backend)
-* **Database**: MySQL / MongoDB (depending on your implementation)
+* **Backend**: PHP 
+* **Database**: MySQL / PHPMYADMIN
 * **Authentication**: Role-based login system
 
 ---
@@ -73,12 +73,6 @@ GreenLife_Wellness_Center/
 
    * If PHP: Start local server using XAMPP/Laragon.
    * Access via `http://localhost/GreenLife_Wellness_Center/`.
-
----
-
-## 📸 UI Mockups
-
-(Add screenshots of your website here for better presentation.)
 
 ---
 
