@@ -103,6 +103,3 @@ GreenLife_Wellness_Center/
   [GitHub](https://github.com/YWanigaarachchi) | [LinkedIn](#)
 
 ---
-
-👉 Do you want me to **write this as a real README.md file** and give you the file to upload directly to your repo?
-
