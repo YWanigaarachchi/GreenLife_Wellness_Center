@@ -1,10 +1,3 @@
-Perfect 👍 Let’s build a professional **README.md** for your **GreenLife Wellness Centre** project.
-I’ll base this on what you told me earlier: it’s a dynamic web application for a holistic wellness organization in Colombo with appointment scheduling, client management, communication portals, and role-based access (clients, therapists, admins).
-
-Here’s a draft README you can use and customise:
-
----
-
 # GreenLife Wellness Centre 🌿
 
 A dynamic web application designed for **GreenLife Wellness Centre**, a holistic wellness organisation in Colombo, Sri Lanka.
