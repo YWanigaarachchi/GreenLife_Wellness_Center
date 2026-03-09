@@ -1,103 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>About Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>About Page</title>
 </head>
+
 <body>
-        <!-- Header -->
-    <header class="site-header">
-        <nav class="navbar container">
-            <div class="navbar-brand">
-                <a href="index.html" class="nav-link" style="text-decoration: none; color: inherit;">🌿 GreenLife Wellness</a>
-            </div>
-            
-            <ul class="navbar-nav" id="navbar-nav">
-                <li><a href="index.html" class="nav-link ">Home</a></li>
-                <li><a href="services.html" class="nav-link">Services</a></li>
-                <li><a href="About.html" class="nav-link active">About</a></li>
-                <li><a href="therapists.html" class="nav-link">Therapists</a></li>
-                <li><a href="Contact.html" class="nav-link">Contact</a></li>
-            </ul>
-            
-            <div class="navbar-actions">
-                <a href="login.php" class="btn btn-outline" onclick="showModal('loginModal')">Login</a>
-                <a href="register.php" class="btn btn-primary" onclick="showModal('registerModal')">Register</a>
-            </div>
+  <!-- Header -->
+  <header class="site-header">
+    <nav class="navbar container">
+      <div class="navbar-brand">
+        <a href="index.html" class="nav-link" style="text-decoration: none; color: inherit;">🌿 GreenLife Wellness</a>
+      </div>
 
-            <div class="navbar-toggle" id="navbar-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
-    <br><br><br><br><br><br><br>
-    <!-- About Section -->
-     <center>
-    <h1>What is GreenLife Wellness</h1></p><br>\
-
-        <p>Welcome to GreenLife Wellness, your sanctuary for holistic health and well-being. Our mission is to provide a comprehensive range of wellness services that nurture the mind, body, and spirit.<br>
-         We believe in the power of natural healing and are dedicated to promoting a balanced lifestyle through our expert therapies and wellness programs.</p>
-        <p>At GreenLife Wellness, we offer a variety of services including Ayurvedic therapies, yoga and meditation classes, nutritional counseling, and stress management workshops.<br>
-         Our team of experienced therapists and wellness professionals are committed to helping you achieve optimal health and vitality.</p>
-        <p>Join us on a journey to better health and discover the transformative power of holistic wellness.<br>
-         Whether you're looking to relax, rejuvenate, or simply maintain a healthy lifestyle, GreenLife Wellness is here to support you every step of the way.</p>
-        </center>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-<!-- ===== Footer Section ===== -->
-<footer class="footer">
-  <div class="footer-container">
-    
-    <!-- About -->
-    <div class="footer-card">
-      <h3>🌿 GreenLife Center</h3>
-      <p>
-        GreenLife Wellness Center is dedicated to holistic health, 
-        offering personalized wellness programs, therapy sessions, 
-        and community support to improve mind, body, and spirit.
-      </p>
-    </div>
-
-    <!-- Contact Info -->
-    <div class="footer-card">
-      <h3>📞 Contact Info</h3>
-      <p>📍 123 Wellness Street, Colombo, Sri Lanka</p>
-      <p>📧 info@greenlife.com</p>
-      <p>☎ +94 70 360 8091</p>
-    </div>
-
-    <!-- Open Hours -->
-    <div class="footer-card">
-      <h3>⏰ Open Hours</h3>
-      <p>Mon – Fri: 8:00 AM – 8:00 PM</p>
-      <p>Saturday: 9:00 AM – 6:00 PM</p>
-      <p>Sunday: Closed</p>
-    </div>
-
-    <!-- Quick Links -->
-    <div class="footer-card">
-      <h3>🔗 Quick Links</h3>
-       <ul>
+      <ul class="navbar-nav" id="navbar-nav">
         <li><a href="index.html" class="nav-link ">Home</a></li>
         <li><a href="services.html" class="nav-link">Services</a></li>
         <li><a href="About.html" class="nav-link active">About</a></li>
         <li><a href="therapists.html" class="nav-link">Therapists</a></li>
         <li><a href="Contact.html" class="nav-link">Contact</a></li>
       </ul>
+
+      <div class="navbar-actions">
+        <a href="login.php" class="btn btn-outline" onclick="showModal('loginModal')">Login</a>
+        <a href="register.php" class="btn btn-primary" onclick="showModal('registerModal')">Register</a>
+      </div>
+
+      <div class="navbar-toggle" id="navbar-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="container">
+      <h1 class="section-title">What is GreenLife Wellness</h1>
+      <div class="about-content">
+        <div class="about-image">
+          <img src="images/about_page.png" alt="About GreenLife Wellness"
+            style="width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+        </div>
+        <div class="about-text">
+          <p>Welcome to <strong>GreenLife Wellness</strong>, your sanctuary for holistic health and well-being. Our
+            mission is to provide a comprehensive range of wellness services that nurture the mind, body, and spirit.
+          </p>
+          <p>We believe in the power of natural healing and are dedicated to promoting a balanced lifestyle through our
+            expert therapies and wellness programs.</p>
+          <p>At GreenLife Wellness, we offer a variety of services including Ayurvedic therapies, yoga and meditation
+            classes, nutritional counseling, and stress management workshops. Our team of experienced therapists and
+            wellness professionals are committed to helping you achieve optimal health and vitality.</p>
+          <ul class="about-features">
+            <li>Expert Ayurvedic & Therapy Practitioners</li>
+            <li>Personalized Nutrition & Wellness Plans</li>
+            <li>Tranquil Environment for Yoga & Meditation</li>
+            <li>Comprehensive Stress Management Programs</li>
+          </ul>
+          <br>
+          <a href="services.html" class="btn btn-primary">Explore Our Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer Section ===== -->
+  <footer class="footer">
+    <div class="footer-container">
+
+      <!-- About -->
+      <div class="footer-card">
+        <h3>🌿 GreenLife Center</h3>
+        <p>
+          GreenLife Wellness Center is dedicated to holistic health,
+          offering personalized wellness programs, therapy sessions,
+          and community support to improve mind, body, and spirit.
+        </p>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-card">
+        <h3>📞 Contact Info</h3>
+        <p>📍 123 Wellness Street, Colombo, Sri Lanka</p>
+        <p>📧 info@greenlife.com</p>
+        <p>☎ +94 70 360 8091</p>
+      </div>
+
+      <!-- Open Hours -->
+      <div class="footer-card">
+        <h3>⏰ Open Hours</h3>
+        <p>Mon – Fri: 8:00 AM – 8:00 PM</p>
+        <p>Saturday: 9:00 AM – 6:00 PM</p>
+        <p>Sunday: Closed</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-card">
+        <h3>🔗 Quick Links</h3>
+        <ul>
+          <li><a href="index.html" class="nav-link ">Home</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="About.html" class="nav-link active">About</a></li>
+          <li><a href="therapists.html" class="nav-link">Therapists</a></li>
+          <li><a href="Contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+
     </div>
 
-  </div>
-
-  <!-- Bottom -->
-  <div class="footer-bottom">
-    <p>© 2025 GreenLife Wellness Center | All Rights Reserved</p>
-  </div>
-</footer>
-    <script src="script.js"></script>
+    <!-- Bottom -->
+    <div class="footer-bottom">
+      <p>© 2025 GreenLife Wellness Center | All Rights Reserved</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
 
 </body>
+
 </html>

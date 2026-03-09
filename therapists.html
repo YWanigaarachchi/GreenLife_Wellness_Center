@@ -1,189 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Therapists</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Therapists</title>
 </head>
-<body>    
-        <!-- Header -->
-    <header class="site-header">
-        <nav class="navbar container">
-            <div class="navbar-brand">
-                <a href="index.html" class="nav-link brand-link">🌿 GreenLife Wellness</a>
-            </div>
-            
-            <ul class="navbar-nav" id="navbar-nav">
-                <li><a href="index.html" class="nav-link ">Home</a></li>
-                <li><a href="services.html" class="nav-link">Services</a></li>
-                <li><a href="About.html" class="nav-link">About</a></li>
-                <li><a href="therapists.html" class="nav-link active">Therapists</a></li>
-                <li><a href="Contact.html" class="nav-link">Contact</a></li>
-            </ul>
-            
-            <div class="navbar-actions">
-                <a href="login.php" class="btn btn-outline" onclick="showModal('loginModal')">Login</a>
-                <a href="register.php" class="btn btn-primary" onclick="showModal('registerModal')">Register</a>
-            </div>
 
-            <div class="navbar-toggle" id="navbar-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
-    <br><br><br><br><br>
-
-        <!-- Therapists Section -->
-<section class="therapists" id="therapists">
-  <div class="container">
-    <h2 class="section-title">Meet Our Expert Therapists</h2>
-    <p class="text-center" style="max-width: 600px; margin: 0 auto; color: var(--text-secondary); margin-bottom: 2rem;">
-      Our team of qualified and experienced practitioners are dedicated to guiding you on your wellness journey.
-    </p>
-
-    <div class="therapists-grid">
-      
-      <!-- Therapist 1 -->
-      <div class="therapist-card" onclick="openForm('form1')">
-        <div class="therapist-avatar">👩‍⚕️</div>
-        <div class="therapist-specialty">Ayurvedic Specialist</div>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <nav class="navbar container">
+      <div class="navbar-brand">
+        <a href="index.html" class="nav-link brand-link">🌿 GreenLife Wellness</a>
       </div>
 
-      <!-- Therapist 2 -->
-      <div class="therapist-card" onclick="openForm('form2')">
-        <div class="therapist-avatar">🧘‍♂️</div>
-        <div class="therapist-specialty">Yoga & Meditation Instructor</div>
-
-      </div>
-
-      <!-- Therapist 3 -->
-      <div class="therapist-card" onclick="openForm('form3')">
-        <div class="therapist-avatar">👨‍⚕️</div>
-        <div class="therapist-specialty">Physiotherapist</div>
-
-      </div>
-
-      <!-- Therapist 4 -->
-      <div class="therapist-card" onclick="openForm('form4')">
-        <div class="therapist-avatar">👩‍🍳</div>
-        <div class="therapist-specialty">Certified Nutritionist</div>
-
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Popup Forms -->
-<div class="form-popup" id="form1">
-  <div class="form-content">
-    <h3>Dr. Priya Sharma</h3>
-    <p>15+ years experience in traditional Ayurvedic medicine and holistic healing practices.</p>
-            <div class="therapist-rating">⭐⭐⭐⭐⭐ (4.9/5)</div>
-    <button type="button" class="btn cancel" onclick="closeForm('form1')">Close</button>
-  </div>
-</div>
-
-<div class="form-popup" id="form2">
-  <div class="form-content">
-    <h3>Ravi Patel</h3>
-    <p>Certified yoga instructor with expertise in Hatha, Vinyasa, and therapeutic yoga practices.</p>
-            <div class="therapist-rating">⭐⭐⭐⭐⭐ (4.8/5)</div>
-    <button type="button" class="btn cancel" onclick="closeForm('form2')">Close</button>
-  </div>
-</div>
-
-<div class="form-popup" id="form3">
-  <div class="form-content">
-    <h3>Dr. Michael Fernando</h3>
-    <p>Licensed physiotherapist specializing in sports injuries and rehabilitation therapy.</p>
-            <div class="therapist-rating">⭐⭐⭐⭐⭐ (4.9/5)</div>
-    <button type="button" class="btn cancel" onclick="closeForm('form3')">Close</button>
-  </div>
-</div>
-
-<div class="form-popup" id="form4">
-  <div class="form-content">
-    <h3>Sarah Johnson</h3>
-    <p>Registered dietitian with specialization in holistic nutrition and meal planning.</p>
-            <div class="therapist-rating">⭐⭐⭐⭐⭐ (4.7/5)</div>
-    <button type="button" class="btn cancel" onclick="closeForm('form4')">Close</button>
-  </div>
-</div>
-
-
-<br><br><br><br>   
- <!-- Footer -->
-<!-- ===== Footer Section ===== -->
-<footer class="footer">
-  <div class="footer-container">
-    
-    <!-- About -->
-    <div class="footer-card">
-      <h3>🌿 GreenLife Center</h3>
-      <p>
-        GreenLife Wellness Center is dedicated to holistic health, 
-        offering personalized wellness programs, therapy sessions, 
-        and community support to improve mind, body, and spirit.
-      </p>
-    </div>
-
-    <!-- Contact Info -->
-    <div class="footer-card">
-      <h3>📞 Contact Info</h3>
-      <p>📍 123 Wellness Street, Colombo, Sri Lanka</p>
-      <p>📧 info@greenlife.com</p>
-      <p>☎ +94 70 360 8091</p>
-    </div>
-
-    <!-- Open Hours -->
-    <div class="footer-card">
-      <h3>⏰ Open Hours</h3>
-      <p>Mon – Fri: 8:00 AM – 8:00 PM</p>
-      <p>Saturday: 9:00 AM – 6:00 PM</p>
-      <p>Sunday: Closed</p>
-    </div>
-
-    <!-- Quick Links -->
-    <div class="footer-card">
-      <h3>🔗 Quick Links</h3>
-       <ul>
+      <ul class="navbar-nav" id="navbar-nav">
         <li><a href="index.html" class="nav-link ">Home</a></li>
         <li><a href="services.html" class="nav-link">Services</a></li>
         <li><a href="About.html" class="nav-link">About</a></li>
         <li><a href="therapists.html" class="nav-link active">Therapists</a></li>
         <li><a href="Contact.html" class="nav-link">Contact</a></li>
       </ul>
+
+      <div class="navbar-actions">
+        <a href="login.php" class="btn btn-outline" onclick="showModal('loginModal')">Login</a>
+        <a href="register.php" class="btn btn-primary" onclick="showModal('registerModal')">Register</a>
+      </div>
+
+      <div class="navbar-toggle" id="navbar-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+  <br><br><br><br><br>
+
+  <!-- Therapists Section -->
+  <section class="therapists" id="therapists">
+    <div class="container">
+      <h2 class="section-title">Meet Our Expert Therapists</h2>
+      <p class="text-center"
+        style="max-width: 600px; margin: 0 auto; color: var(--text-secondary); margin-bottom: 2rem;">
+        Our team of qualified and experienced practitioners are dedicated to guiding you on your wellness journey.
+      </p>
+
+      <div class="therapists-grid">
+
+        <style>
+          .therapist-card {
+            padding: 0;
+            overflow: hidden;
+            border-radius: 20px;
+          }
+
+          .therapist-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+          }
+
+          .therapist-card:hover .therapist-img {
+            transform: scale(1.05);
+          }
+
+          .therapist-info {
+            padding: 1.5rem;
+          }
+        </style>
+
+        <!-- Therapist 1 -->
+        <div class="therapist-card" onclick="openForm('form1')">
+          <img src="images/therapist1.png" class="therapist-img" alt="Dr. Priya Sharma">
+          <div class="therapist-info">
+            <h3 style="margin-bottom: 5px; color: var(--primary-color);">Dr. Priya Sharma</h3>
+            <div class="therapist-specialty">Ayurvedic Specialist</div>
+          </div>
+        </div>
+
+        <!-- Therapist 2 -->
+        <div class="therapist-card" onclick="openForm('form2')">
+          <img src="images/therapist2.png" class="therapist-img" alt="Ravi Patel">
+          <div class="therapist-info">
+            <h3 style="margin-bottom: 5px; color: var(--primary-color);">Ravi Patel</h3>
+            <div class="therapist-specialty">Yoga & Meditation Instructor</div>
+          </div>
+        </div>
+
+        <!-- Therapist 3 -->
+        <div class="therapist-card" onclick="openForm('form3')">
+          <img src="images/therapist3.png" class="therapist-img" alt="Dr. Michael Fernando">
+          <div class="therapist-info">
+            <h3 style="margin-bottom: 5px; color: var(--primary-color);">Dr. Michael Fernando</h3>
+            <div class="therapist-specialty">Physiotherapist</div>
+          </div>
+        </div>
+
+        <!-- Therapist 4 -->
+        <div class="therapist-card" onclick="openForm('form4')">
+          <img src="images/therapist4.png" class="therapist-img" alt="Sarah Johnson">
+          <div class="therapist-info">
+            <h3 style="margin-bottom: 5px; color: var(--primary-color);">Sarah Johnson</h3>
+            <div class="therapist-specialty">Certified Nutritionist</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Popup Forms -->
+  <div class="form-popup" id="form1">
+    <div class="form-content">
+      <h3>Dr. Priya Sharma</h3>
+      <p>15+ years experience in traditional Ayurvedic medicine and holistic healing practices.</p>
+      <div class="therapist-rating">⭐⭐⭐⭐⭐ (4.9/5)</div>
+      <button type="button" class="btn cancel" onclick="closeForm('form1')">Close</button>
+    </div>
+  </div>
+
+  <div class="form-popup" id="form2">
+    <div class="form-content">
+      <h3>Ravi Patel</h3>
+      <p>Certified yoga instructor with expertise in Hatha, Vinyasa, and therapeutic yoga practices.</p>
+      <div class="therapist-rating">⭐⭐⭐⭐⭐ (4.8/5)</div>
+      <button type="button" class="btn cancel" onclick="closeForm('form2')">Close</button>
+    </div>
+  </div>
+
+  <div class="form-popup" id="form3">
+    <div class="form-content">
+      <h3>Dr. Michael Fernando</h3>
+      <p>Licensed physiotherapist specializing in sports injuries and rehabilitation therapy.</p>
+      <div class="therapist-rating">⭐⭐⭐⭐⭐ (4.9/5)</div>
+      <button type="button" class="btn cancel" onclick="closeForm('form3')">Close</button>
+    </div>
+  </div>
+
+  <div class="form-popup" id="form4">
+    <div class="form-content">
+      <h3>Sarah Johnson</h3>
+      <p>Registered dietitian with specialization in holistic nutrition and meal planning.</p>
+      <div class="therapist-rating">⭐⭐⭐⭐⭐ (4.7/5)</div>
+      <button type="button" class="btn cancel" onclick="closeForm('form4')">Close</button>
+    </div>
+  </div>
+
+
+  <br><br><br><br>
+  <!-- Footer -->
+  <!-- ===== Footer Section ===== -->
+  <footer class="footer">
+    <div class="footer-container">
+
+      <!-- About -->
+      <div class="footer-card">
+        <h3>🌿 GreenLife Center</h3>
+        <p>
+          GreenLife Wellness Center is dedicated to holistic health,
+          offering personalized wellness programs, therapy sessions,
+          and community support to improve mind, body, and spirit.
+        </p>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-card">
+        <h3>📞 Contact Info</h3>
+        <p>📍 123 Wellness Street, Colombo, Sri Lanka</p>
+        <p>📧 info@greenlife.com</p>
+        <p>☎ +94 70 360 8091</p>
+      </div>
+
+      <!-- Open Hours -->
+      <div class="footer-card">
+        <h3>⏰ Open Hours</h3>
+        <p>Mon – Fri: 8:00 AM – 8:00 PM</p>
+        <p>Saturday: 9:00 AM – 6:00 PM</p>
+        <p>Sunday: Closed</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-card">
+        <h3>🔗 Quick Links</h3>
+        <ul>
+          <li><a href="index.html" class="nav-link ">Home</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="About.html" class="nav-link">About</a></li>
+          <li><a href="therapists.html" class="nav-link active">Therapists</a></li>
+          <li><a href="Contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+
     </div>
 
-  </div>
+    <!-- Bottom -->
+    <div class="footer-bottom">
+      <p>© 2025 GreenLife Wellness Center | All Rights Reserved</p>
+    </div>
+  </footer>
 
-  <!-- Bottom -->
-  <div class="footer-bottom">
-    <p>© 2025 GreenLife Wellness Center | All Rights Reserved</p>
-  </div>
-</footer>
-
-<!-- JS -->
-<script>
-function openForm(id) {
-  document.getElementById(id).style.display = "flex";
-}
-function closeForm(id) {
-  document.getElementById(id).style.display = "none";
-}
-// Close popup if clicking outside content
-window.onclick = function(event) {
-  document.querySelectorAll('.form-popup').forEach(popup => {
-    if (event.target === popup) {
-      popup.style.display = "none";
+  <!-- JS -->
+  <script>
+    function openForm(id) {
+      document.getElementById(id).style.display = "flex";
     }
-  });
-}
-</script>
+    function closeForm(id) {
+      document.getElementById(id).style.display = "none";
+    }
+    // Close popup if clicking outside content
+    window.onclick = function (event) {
+      document.querySelectorAll('.form-popup').forEach(popup => {
+        if (event.target === popup) {
+          popup.style.display = "none";
+        }
+      });
+    }
+  </script>
 
 </body>
+
 </html>
