@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 
-body, html { height:100%; font-family: 'Segoe UI', sans-serif; }
+body, html { height:100%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
 
 .register-wrapper {
     display: flex;
@@ -88,110 +88,120 @@ body, html { height:100%; font-family: 'Segoe UI', sans-serif; }
     height: 100vh;
 }
 
-/* Left registration form */
 .register-left {
     flex: 1.5;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #f4f8f6;
+    background: #f8f9fa;
     padding: 40px;
 }
 
 .register-container {
-    background: #fff;
+    background: #ffffff;
     padding: 50px 40px;
-    border-radius: 15px;
+    border-radius: 20px;
     width: 100%;
     max-width: 600px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
 }
 
 .register-container h2 {
     margin-bottom: 25px;
     text-align: center;
-    color: #2c3e50;
-    font-size: 2rem;
+    color: #2c7a2c;
+    font-size: 2.2rem;
+    font-weight: 700;
 }
 
-.register-container input[type="text"],
-.register-container input[type="email"],
-.register-container input[type="password"],
-.register-container input[type="tel"] {
+.register-container input {
     width: 100%;
-    padding: 14px;
+    padding: 14px 16px;
     margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
     font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.register-container input:focus {
+    outline: none;
+    border-color: #2c7a2c;
 }
 
 .register-container button {
     width: 100%;
     padding: 14px;
-    background: #28a745;
+    background: #2c7a2c;
     border: none;
     color: white;
     font-size: 1.1rem;
-    font-weight: bold;
-    border-radius: 8px;
+    font-weight: 600;
+    border-radius: 12px;
     cursor: pointer;
-    transition: background 0.3s;
-    margin-top: 10px;
+    transition: all 0.3s ease;
+    margin-top: 15px;
 }
 
 .register-container button:hover {
-    background: #218838;
+    background: #4a9d4a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(44, 122, 44, 0.3);
 }
 
 .message {
     text-align: center;
     margin-bottom: 15px;
-    color: red;
+    color: #dc3545;
+    background: #ffe6e6;
+    padding: 10px;
+    border-radius: 8px;
 }
 
 .register-link {
-    margin-top: 20px;
+    margin-top: 25px;
     text-align: center;
     font-size: 0.95rem;
+    color: #666;
 }
 
 .register-link a {
-    color: #007bff;
+    color: #2c7a2c;
     text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
 
 .register-link a:hover {
-    text-decoration: underline;
+    color: #4a9d4a;
 }
 
-/* Right branding image */
 .register-right {
     flex: 1;
-    background: url('wellness.jpg') no-repeat center center/cover;
+    background: linear-gradient(135deg, rgba(44, 122, 44, 0.4), rgba(74, 157, 74, 0.4)), url('images/about_page.png') no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #fff;
     text-align: center;
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.2);
 }
 
 .register-right h1 {
     font-size: 2.5rem;
-    background: rgba(0,0,0,0.5);
-    padding: 20px;
-    border-radius: 12px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-/* Footer */
 footer {
-    background: #2c3e50;
-    color: #fff;
-    padding: 15px 0;
-    text-align: center;
+    display: none;
 }
 
-/* Responsive */
 @media (max-width: 900px) {
     .register-wrapper {
         flex-direction: column;
